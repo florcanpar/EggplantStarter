@@ -46,15 +46,15 @@ public class Main {
                     Seleccione una opción:\s
                     1.- Iniciar sesión.
                     2.- Salir.""");
-            opcion= s.nextInt();
+            opcion= Integer.parseInt(s.nextLine());
             switch (opcion){
                 case 1:
                     do {
                         gestor = admin = inversor1 = inversor2 = false;
-                        System.out.println("Usuario: ");
-                        usuario = s.next();
-                        System.out.println("Contraseña: ");
-                        contraseña = s.next();
+                        System.out.print("Usuario: ");
+                        usuario = s.nextLine();
+                        System.out.print("Contraseña: ");
+                        contraseña = s.nextLine();
                         contadorTotal++;
                         // VALIDACIÓN DE GESTOR
                         if (usuario.equals(GESTOR_USUARIO)) {
@@ -63,7 +63,7 @@ public class Main {
                             } else if (contraseña.equals(GESTOR_CONTRASEÑA)) {
                                 System.out.println("Bienvenido " + GESTOR_USUARIO);
                                 gestor = true;
-                                contadorFallosGestor = 0; // Reiniciar contador de fallos
+                                contadorFallosGestor = 0;
                             } else {
                                 System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
                                 contadorFallosGestor++;
@@ -80,7 +80,7 @@ public class Main {
                             } else if (contraseña.equals(INVERSOR1_CONTRASEÑA)) {
                                 System.out.println("Bienvenido " + INVERSOR1_USUARIO);
                                 inversor1 = true;
-                                contadorFallosInversor1 = 0; // Reiniciar contador de fallos
+                                contadorFallosInversor1 = 0;
                             } else {
                                 System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
                                 contadorFallosInversor1++;
@@ -97,7 +97,7 @@ public class Main {
                             } else if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
                                 System.out.println("Bienvenido " + INVERSOR2_USUARIO);
                                 inversor2 = true;
-                                contadorFallosInversor2 = 0; // Reiniciar contador de fallos
+                                contadorFallosInversor2 = 0;
                             } else {
                                 System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
                                 contadorFallosInversor2++;
@@ -128,7 +128,7 @@ public class Main {
                             System.out.println("2.Proyectos");
                             System.out.println("3.Configuracion");
                             System.out.println("4.Cerrar sesion");
-                            opcion2 = s.nextInt();
+                            opcion2 = Integer.parseInt(s.nextLine());
                             switch (opcion2) {
                                 case 1: {
                                     System.out.println("Has ingresado a: Panel de Control");
@@ -139,7 +139,7 @@ public class Main {
                                         System.out.println("2. Usuario " + INVERSOR1_USUARIO);
                                         System.out.println("3. Usuario " + INVERSOR2_USUARIO);
                                         System.out.println("4. Volver al menu Administrador");
-                                        opcion = s.nextInt();
+                                        opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1 :
                                                 if (bloquearGestor){
@@ -183,7 +183,7 @@ public class Main {
                                         System.out.println("2. Modificar Proyectos");
                                         System.out.println("3. Eliminar Proyectos");
                                         System.out.println("4. Vuelta al menu Administrador");
-                                        opcion = s.nextInt();
+                                        opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
                                                 if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
@@ -196,7 +196,7 @@ public class Main {
                                                         2. Segundo proyecto.
                                                         3. Tercer proyecto.
                                                         4. Volver.""");
-                                                        opcion = s.nextInt();
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
@@ -327,7 +327,7 @@ public class Main {
                                                       2. Segundo proyecto.
                                                       3. Tercer proyecto.
                                                       4. Volver.""");
-                                                        opcion = s.nextInt();
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
@@ -346,7 +346,7 @@ public class Main {
                                                                 8. Recompensas
                                                                 9. Volver.
                                                                 """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -362,11 +362,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto01 = s.nextInt();
+                                                                                cantNecesariaProyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto01 = s.nextInt();
+                                                                                cantFinanciadaProyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -384,14 +384,14 @@ public class Main {
                                                                 2. Recompensa 2.
                                                                 3. Recompensa 3.
                                                                 4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                             s.nextLine();
                                                                                             recompensa1Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 2:
@@ -399,7 +399,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa2Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 3:
@@ -407,7 +407,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa3Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 4:
@@ -439,7 +439,7 @@ public class Main {
                                                                 8. Recompensas
                                                                 9. Volver.
                                                                 """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -455,11 +455,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto02 = s.nextInt();
+                                                                                cantNecesariaProyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto02 = s.nextInt();
+                                                                                cantFinanciadaProyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -477,14 +477,14 @@ public class Main {
                                                                                     2. Recompensa 2.
                                                                                     3. Recompensa 3.
                                                                                     4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                             s.nextLine();
                                                                                             recompensa1Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 2:
@@ -492,7 +492,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa2Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 3:
@@ -500,7 +500,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa3Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 4:
@@ -534,7 +534,7 @@ public class Main {
                                                                         8. Recompensas
                                                                         9. Volver.
                                                                         """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -550,11 +550,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto03 = s.nextInt();
+                                                                                cantNecesariaProyecto03 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto03 = s.nextInt();
+                                                                                cantFinanciadaProyecto03 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -572,14 +572,14 @@ public class Main {
                                                                                     2. Recompensa 2.
                                                                                     3. Recompensa 3.
                                                                                     4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                             s.nextLine();
                                                                                             recompensa1Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto03 = s.nextInt();
+                                                                                            preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 2:
@@ -587,7 +587,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa2Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto03 = s.nextInt();
+                                                                                            preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 3:
@@ -595,7 +595,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa3Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto03 = s.nextInt();
+                                                                                            preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 4:
@@ -629,14 +629,14 @@ public class Main {
                                         3. Tercero Proyecto.
                                         4. Volver.
                                         """);
-                                                        opcion = s.nextInt();
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto01 + "? (s/n)");
-                                                                    String eliminarProyecto1SiNo = s.next();
+                                                                    String eliminarProyecto1SiNo = s.nextLine();
                                                                     if (eliminarProyecto1SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto01 = "";
                                                                         descProyecto01 = "";
@@ -661,7 +661,7 @@ public class Main {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto02 + "? (s/n)");
-                                                                    String eliminarProyecto2SiNo = s.next();
+                                                                    String eliminarProyecto2SiNo = s.nextLine();
                                                                     if (eliminarProyecto2SiNo.equalsIgnoreCase("s")){
                                                                         nombreProyecto02 = "";
                                                                         descProyecto02 = "";
@@ -687,7 +687,7 @@ public class Main {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto03 + "? (s/n)");
-                                                                    String eliminarProyecto3SiNo = s.next();
+                                                                    String eliminarProyecto3SiNo = s.nextLine();
                                                                     if (eliminarProyecto3SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto03 = "";
                                                                         descProyecto03 = "";
@@ -715,7 +715,7 @@ public class Main {
                                                                 break;
                                                         }
                                                     }while (opcion != 4);
-                                                }
+                                                }else System.out.println("Aun no hay proyectos creados, cuando lo estén podrás eliminarlos.");
                                                 break;
                                             case 4 :
                                                 System.out.println("Vuelta al menu Administrador ");
@@ -732,7 +732,7 @@ public class Main {
                                         System.out.println("1. Cambio de Usuario");
                                         System.out.println("2. Cambio de Contraseña");
                                         System.out.println("3. Vuelta al menu Administrador");
-                                        opcion = s.nextInt();
+                                        opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
                                                 do {
@@ -752,6 +752,7 @@ public class Main {
                                                 break;
                                             case 3:
                                                 System.out.println("Vuelta al menu Administrador");
+                                                break;
                                             default:
                                                 System.out.println("No existe esta opcion");
                                         }
@@ -774,7 +775,7 @@ public class Main {
                             System.out.println("1. Mis proyectos.");
                             System.out.println("2. Cambiar usuario/contraseña.");
                             System.out.println("3. Cerrar sesión.");
-                            menuGestor = s.nextInt();
+                            menuGestor = Integer.parseInt(s.nextLine());
                             switch (menuGestor){
                                 case 1:
                                     do{
@@ -782,13 +783,13 @@ public class Main {
                                         System.out.println(morado + "MIS PROYECTOS");
                                         System.out.println(amarillo + "*************" + colorNormal);
                                         System.out.println("""
-                                1. Ver proyecto.
-                                2. Crear proyecto.
-                                3. Modificar proyecto.
-                                4. Eliminar proyecto.
-                                5. Volver al menú gestor.
-                                """);
-                                        opcion = s.nextInt();
+                                        1. Ver proyecto.
+                                        2. Crear proyecto.
+                                        3. Modificar proyecto.
+                                        4. Eliminar proyecto.
+                                        5. Volver al menú gestor.
+                                        """);
+                                        opcion = Integer.parseInt(s.nextLine());
                                         switch(opcion){
                                             case 1:
                                                 if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
@@ -796,12 +797,12 @@ public class Main {
                                                 }else{
                                                     do {
                                                         System.out.println("""
-                                        ¿Qué proyecto quieres ver?
-                                        1. Primer proyecto.
-                                        2. Segundo proyecto.
-                                        3. Tercer proyecto.
-                                        4. Volver.""");
-                                                        opcion = s.nextInt();
+                                                        ¿Qué proyecto quieres ver?
+                                                        1. Primer proyecto.
+                                                        2. Segundo proyecto.
+                                                        3. Tercer proyecto.
+                                                        4. Volver.""");
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
@@ -825,7 +826,7 @@ public class Main {
                                                                     System.out.println("Gráfico de barras de cantidad finaciada: \n" +
                                                                             "| : Parte financiada.\n" +
                                                                             "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto01 = (int) (((double)cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
+                                                                    graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
                                                                     System.out.print("[");
                                                                     for (x = 0; x != graficoBarrasProyecto01; x++){
                                                                         System.out.print("|");
@@ -897,7 +898,7 @@ public class Main {
                                                                     System.out.println("Gráfico de barras de cantidad financiada: \n" +
                                                                             "| : Parte financiada.\n" +
                                                                             "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto03 = (int) (((double)cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
+                                                                    graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
                                                                     System.out.print("[");
                                                                     for (x = 0; x != graficoBarrasProyecto03; x++) {
                                                                         System.out.print("|");
@@ -929,7 +930,7 @@ public class Main {
                                                       2. Segundo proyecto.
                                                       3. Tercer proyecto.
                                                       4. Volver.""");
-                                                    opcion = s.nextInt();
+                                                    opcion = Integer.parseInt(s.nextLine());
                                                     switch(opcion){
                                                         case 1:
                                                             System.out.println("Nombre:");
@@ -944,9 +945,9 @@ public class Main {
                                                                 System.out.println("Categoría:");
                                                                 categoriaProyecto01 = s.nextLine();
                                                                 System.out.println("Cantidad necesaria:");
-                                                                cantNecesariaProyecto01 = s.nextInt();
+                                                                cantNecesariaProyecto01 = Integer.parseInt(s.nextLine());
                                                                 System.out.println("Cantidad financiada:");
-                                                                cantFinanciadaProyecto01 = s.nextInt();
+                                                                cantFinanciadaProyecto01 = Integer.parseInt(s.nextLine());
                                                                 s.nextLine();
                                                                 if (cantNecesariaProyecto01 >= cantFinanciadaProyecto01){
                                                                     System.out.println("Fecha de Inicio de inversiones:");
@@ -955,30 +956,30 @@ public class Main {
                                                                     fechaFinalProyecto01 = s.nextLine();
                                                                     do {
                                                                         System.out.println("""
-                                                                ¿Qué recompensa quieres crear?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
-                                                                        opcion = s.nextInt();
+                                                                        ¿Qué recompensa quieres crear?
+                                                                        1. Recompensa 1.
+                                                                        2. Recompensa 2.
+                                                                        3. Recompensa 3.
+                                                                        4. Volver""");
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
                                                                                 System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                 recompensa1Proyecto01 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                preciorecompensa1Proyecto01 = s.nextInt();
+                                                                                preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 2:
                                                                                 System.out.println("Escriba la descripción de la recompensa 2:");
                                                                                 recompensa2Proyecto01 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                preciorecompensa2Proyecto01 = s.nextInt();
+                                                                                preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 3:
                                                                                 System.out.println("Escriba la descripción de la recompensa 3:");
                                                                                 recompensa3Proyecto01 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                preciorecompensa3Proyecto01 = s.nextInt();
+                                                                                preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Saliendo...");
@@ -1004,10 +1005,9 @@ public class Main {
                                                                 System.out.println("Categoría:");
                                                                 categoriaProyecto02 = s.nextLine();
                                                                 System.out.println("Cantidad necesaria:");
-                                                                cantNecesariaProyecto02 = s.nextInt();
+                                                                cantNecesariaProyecto02 = Integer.parseInt(s.nextLine());
                                                                 System.out.println("Cantidad financiada:");
-                                                                cantFinanciadaProyecto02 = s.nextInt();
-                                                                s.nextLine();
+                                                                cantFinanciadaProyecto02 = Integer.parseInt(s.nextLine());
                                                                 if (cantNecesariaProyecto02 >= cantFinanciadaProyecto02){
                                                                     System.out.println("Fecha de Inicio de inversiones:");
                                                                     fechaInicioProyecto02 = s.nextLine();
@@ -1020,25 +1020,25 @@ public class Main {
                                                                 2. Recompensa 2.
                                                                 3. Recompensa 3.
                                                                 4. Volver""");
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
                                                                                 System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                 recompensa1Proyecto02 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                preciorecompensa1Proyecto02 = s.nextInt();
+                                                                                preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 2:
                                                                                 System.out.println("Escriba la descripción de la recompensa 2:");
                                                                                 recompensa2Proyecto02 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                preciorecompensa2Proyecto02 = s.nextInt();
+                                                                                preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 3:
                                                                                 System.out.println("Escriba la descripción de la recompensa 3:");
                                                                                 recompensa3Proyecto02 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                preciorecompensa3Proyecto02 = s.nextInt();
+                                                                                preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Saliendo...");
@@ -1064,9 +1064,9 @@ public class Main {
                                                                 System.out.println("Categoría:");
                                                                 categoriaProyecto03 = s.nextLine();
                                                                 System.out.println("Cantidad necesaria:");
-                                                                cantNecesariaProyecto03 = s.nextInt();
+                                                                cantNecesariaProyecto03 = Integer.parseInt(s.nextLine());
                                                                 System.out.println("Cantidad financiada:");
-                                                                cantFinanciadaProyecto03 = s.nextInt();
+                                                                cantFinanciadaProyecto03 = Integer.parseInt(s.nextLine());
                                                                 s.nextLine();
                                                                 if (cantNecesariaProyecto03 >= cantFinanciadaProyecto03){
                                                                     System.out.println("Fecha de Inicio de inversiones:");
@@ -1080,14 +1080,14 @@ public class Main {
                                                                 2. Recompensa 2.
                                                                 3. Recompensa 3.
                                                                 4. Volver""");
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
                                                                                 System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                 s.nextLine();
                                                                                 recompensa1Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                preciorecompensa1Proyecto03 = s.nextInt();
+                                                                                preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                 s.nextLine();
                                                                                 break;
                                                                             case 2:
@@ -1095,7 +1095,7 @@ public class Main {
                                                                                 s.nextLine();
                                                                                 recompensa2Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                preciorecompensa2Proyecto03 = s.nextInt();
+                                                                                preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                 s.nextLine();
                                                                                 break;
                                                                             case 3:
@@ -1103,7 +1103,7 @@ public class Main {
                                                                                 s.nextLine();
                                                                                 recompensa3Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                preciorecompensa3Proyecto03 = s.nextInt();
+                                                                                preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
                                                                                 s.nextLine();
                                                                                 break;
                                                                             case 4:
@@ -1137,7 +1137,7 @@ public class Main {
                                                       2. Segundo proyecto.
                                                       3. Tercer proyecto.
                                                       4. Volver.""");
-                                                        opcion = s.nextInt();
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
@@ -1156,7 +1156,7 @@ public class Main {
                                                                 8. Recompensas
                                                                 9. Volver.
                                                                 """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -1172,11 +1172,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto01 = s.nextInt();
+                                                                                cantNecesariaProyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto01 = s.nextInt();
+                                                                                cantFinanciadaProyecto01 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -1194,14 +1194,14 @@ public class Main {
                                                                                     2. Recompensa 2.
                                                                                     3. Recompensa 3.
                                                                                     4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                             s.nextLine();
                                                                                             recompensa1Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 2:
@@ -1209,7 +1209,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa2Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 3:
@@ -1217,7 +1217,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa3Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto01 = s.nextInt();
+                                                                                            preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 4:
@@ -1249,7 +1249,7 @@ public class Main {
                                                                         8. Recompensas
                                                                         9. Volver.
                                                                         """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -1265,11 +1265,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto02 = s.nextInt();
+                                                                                cantNecesariaProyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto02 = s.nextInt();
+                                                                                cantFinanciadaProyecto02 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -1287,14 +1287,14 @@ public class Main {
                                                                 2. Recompensa 2.
                                                                 3. Recompensa 3.
                                                                 4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
                                                                                             s.nextLine();
                                                                                             recompensa1Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 2:
@@ -1302,7 +1302,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa2Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 3:
@@ -1310,7 +1310,7 @@ public class Main {
                                                                                             s.nextLine();
                                                                                             recompensa3Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto02 = s.nextInt();
+                                                                                            preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
                                                                                             s.nextLine();
                                                                                             break;
                                                                                         case 4:
@@ -1344,7 +1344,7 @@ public class Main {
                                                                 8. Recompensas
                                                                 9. Volver.
                                                                 """);
-                                                                        opcion = s.nextInt();
+                                                                        opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
                                                                                 System.out.println("Nombre:");
@@ -1360,11 +1360,11 @@ public class Main {
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto03 = s.nextInt();
+                                                                                cantNecesariaProyecto03 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 5:
                                                                                 System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto03 = s.nextInt();
+                                                                                cantFinanciadaProyecto03 = Integer.parseInt(s.nextLine());
                                                                                 break;
                                                                             case 6:
                                                                                 System.out.println("Fecha de Inicio de inversiones:");
@@ -1377,36 +1377,36 @@ public class Main {
                                                                             case 8:
                                                                                 do {
                                                                                     System.out.println("""
-                                                                ¿Qué recompensa quieres cambiar?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
-                                                                                    opcion = s.nextInt();
+                                                                                    ¿Qué recompensa quieres cambiar?
+                                                                                    1. Recompensa 1.
+                                                                                    2. Recompensa 2.
+                                                                                    3. Recompensa 3.
+                                                                                    4. Volver""");
+                                                                                    opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
+
                                                                                             recompensa1Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto03 = s.nextInt();
-                                                                                            s.nextLine();
+                                                                                            preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
+
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
+
                                                                                             recompensa2Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto03 = s.nextInt();
-                                                                                            s.nextLine();
+                                                                                            preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
+
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
+
                                                                                             recompensa3Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto03 = s.nextInt();
-                                                                                            s.nextLine();
+                                                                                            preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
+
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -1440,14 +1440,14 @@ public class Main {
                                                         3. Tercero Proyecto.
                                                         4. Volver.
                                                         """);
-                                                        opcion = s.nextInt();
+                                                        opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto01 + "? (s/n)");
-                                                                    String eliminarProyecto1SiNo = s.next();
+                                                                    String eliminarProyecto1SiNo = s.nextLine();
                                                                     if (eliminarProyecto1SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto01 = "";
                                                                         descProyecto01 = "";
@@ -1472,7 +1472,7 @@ public class Main {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto02 + "? (s/n)");
-                                                                    String eliminarProyecto2SiNo = s.next();
+                                                                    String eliminarProyecto2SiNo = s.nextLine();
                                                                     if (eliminarProyecto2SiNo.equalsIgnoreCase("s")){
                                                                         nombreProyecto02 = "";
                                                                         descProyecto02 = "";
@@ -1498,7 +1498,7 @@ public class Main {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto03 + "? (s/n)");
-                                                                    String eliminarProyecto3SiNo = s.next();
+                                                                    String eliminarProyecto3SiNo = s.nextLine();
                                                                     if (eliminarProyecto3SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto03 = "";
                                                                         descProyecto03 = "";
@@ -1545,14 +1545,14 @@ public class Main {
                                         System.out.println("1. Cambiar usuario.");
                                         System.out.println("2. Cambiar contraseña.");
                                         System.out.println("3. Volver al Menú Gestor.");
-                                        opcion = s.nextInt();
+                                        opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
                                                 System.out.println("Inserte su anterior usuario:");
-                                                String userAntiguo = s.next();
+                                                String userAntiguo = s.nextLine();
                                                 if (userAntiguo.equals(GESTOR_USUARIO)){
                                                     System.out.println("Inserte su nuevo usuario:");
-                                                    String userNuevo = s.next();
+                                                    String userNuevo = s.nextLine();
                                                     GESTOR_USUARIO = userNuevo;
                                                     System.out.println("Su usuario ahora es " + GESTOR_USUARIO + ".");
                                                 }else {
@@ -1562,10 +1562,10 @@ public class Main {
                                                 break;
                                             case 2:
                                                 System.out.println("Inserte su anterior contraseña:");
-                                                String passwordUsuario = s.next();
+                                                String passwordUsuario = s.nextLine();
                                                 if (passwordUsuario.equals(GESTOR_CONTRASEÑA)){
                                                     System.out.println("Inserte su nueva contraseña:");
-                                                    String passwordNueva = s.next();
+                                                    String passwordNueva = s.nextLine();
                                                     GESTOR_CONTRASEÑA = passwordNueva;
                                                     System.out.println("Su contraseña ha sido cambiada.");
                                                 }else {
@@ -1600,7 +1600,7 @@ public class Main {
                                     4. Invitar amigos.
                                     5. Configuración.
                                     6. Salir.""");
-                            opcion = s.nextInt();
+                            opcion = Integer.parseInt(s.nextLine());
                             switch (opcion){
                                 case 1:
                                     if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
@@ -1613,7 +1613,7 @@ public class Main {
                                         2. Segundo proyecto.
                                         3. Tercer proyecto.
                                         4. Volver.""");
-                                            opcion = s.nextInt();
+                                            opcion = Integer.parseInt(s.nextLine());
                                             switch(opcion){
                                                 case 1:
                                                     if (nombreProyecto01.equals("")){
@@ -1626,10 +1626,10 @@ public class Main {
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy01);
                                                         System.out.println("¿Deseas invertir?(s/n)");
-                                                        String inversionSiNo = s.next();
+                                                        String inversionSiNo = s.nextLine();
                                                         if (inversionSiNo.equalsIgnoreCase("s")) {
                                                             System.out.print("Cantidad a invertir: ");
-                                                            cantidadInvertir = s.nextLine();
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
                                                             if (cantidadInvertir > carteraInversor1) {
                                                                 System.out.println("No tienes suficiente saldo en tu cartera");
                                                             } else if (cantidadInvertir > (cantNecesariaProyecto01 - cantFinanciadaProyecto01)) {
@@ -1640,6 +1640,7 @@ public class Main {
                                                                 System.out.println("Has invertido " + cantidadInvertir + " euros.");
                                                                 carteraInversor1 = carteraInversor1 - cantidadInvertir;
                                                                 cantFinanciadaProyecto01 += cantidadInvertir;
+                                                                cantidadInvertidaInversor1Proy01 += cantidadInvertir;
                                                             }
                                                         } else {
                                                             System.out.println("Saliendo...");
@@ -1687,7 +1688,6 @@ public class Main {
                                                         System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                         System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
-
                                                     }
                                                     break;
                                                 case 4:
@@ -1717,7 +1717,7 @@ public class Main {
                                             case 2:
                                                 do {
                                                     System.out.println("¿Cuánto dinero quieres añadir?");
-                                                    dineroAnadido = Double.parseDouble(s.nextLine());
+                                                    dineroAnadido = Integer.parseInt(s.nextLine());
                                                     if (dineroAnadido<0) System.out.println("La cantidad añadida debe ser mayor a 0");
                                                     else carteraInversor1+=dineroAnadido;
                                                 }while (dineroAnadido<=0);
@@ -1777,7 +1777,7 @@ public class Main {
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
-                                                System.out.print("Escribe la contraseña");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contraseña = s.nextLine();
                                                 if (contraseña.equals(INVERSOR1_CONTRASEÑA)){
                                                     System.out.print("Nuevo usuario: ");
@@ -1786,7 +1786,7 @@ public class Main {
                                                 else System.out.println("La contraseña es incorrecta");
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contraseña:");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contraseña = s.nextLine();
                                                 if (contraseña.equals(INVERSOR1_CONTRASEÑA)){
                                                     System.out.print("Nueva contraseña: ");
@@ -1835,7 +1835,7 @@ public class Main {
                                             case 2:
                                                 do {
                                                     System.out.println("¿Cuánto dinero quieres añadir?");
-                                                    dineroAnadido = Double.parseDouble(s.nextLine());
+                                                    dineroAnadido = Integer.parseInt(s.nextLine());
                                                     if (dineroAnadido < 0)
                                                         System.out.println("La cantidad añadida debe ser mayor a 0");
                                                     else carteraInversor2 += dineroAnadido;
@@ -1896,7 +1896,7 @@ public class Main {
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
-                                                System.out.print("Escribe la contraseña");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contraseña = s.nextLine();
                                                 if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
                                                     System.out.print("Nuevo usuario: ");
@@ -1904,7 +1904,7 @@ public class Main {
                                                 } else System.out.println("La contraseña es incorrecta");
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contraseña:");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contraseña = s.nextLine();
                                                 if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
                                                     System.out.print("Nueva contraseña: ");
