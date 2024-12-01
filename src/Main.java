@@ -3,18 +3,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        String ADMIN_USUARIO = "admin", ADMIN_CONTRASEÑA = "adminpass", GESTOR_USUARIO = "gestor", GESTOR_CONTRASEÑA = "gestorpass",
-        INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASEÑA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASEÑA = "inversor2pass", usuario, contraseña, amigosReferidos="";
+        String ADMIN_USUARIO = "admin", ADMIN_CONTRASENA = "adminpass", GESTOR_USUARIO = "gestor", GESTOR_CONTRASENA = "gestorpass",
+                INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASENA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASENA = "inversor2pass", usuario, contrasena, amigosReferidos="";
         int contadorFallosGestor = 0, contadorFallosInversor1 = 0, contadorFallosInversor2 = 0, contadorTotal = 0;
-        boolean bloquearGestor = false, bloquearInversor1 = false, bloquearInversor2 = false, admin = false, gestor = false, inversor1 = false, inversor2 = false;
-        int carteraInversor1 = 0, carteraInversor2 = 0, dineroAnadido = 0, cantidadInvertir=0, cantidadInvertidaInversor1Proy01 = 0, cantidadInvertidaInversor1Proy02 = 0, cantidadInvertidaInversor1Proy03 = 0,
+        boolean bloquearGestor = false, bloquearInversor1 = false, bloquearInversor2 = false, admin, gestor, inversor1, inversor2;
+        int carteraInversor1 = 0, carteraInversor2 = 0, dineroAnadido, cantidadInvertir, cantidadInvertidaInversor1Proy01 = 0, cantidadInvertidaInversor1Proy02 = 0, cantidadInvertidaInversor1Proy03 = 0,
                 cantidadInvertidaInversor2Proy01 = 0, cantidadInvertidaInversor2Proy02 = 0, cantidadInvertidaInversor2Proy03 = 0;
 
         String negro = "\033[30m", rojo = "\033[31m", verde = "\033[32m", amarillo = "\033[33m", azul = "\033[34m",
                 morado = "\033[35m", cyan = "\033[36m", blanco = "\033[37m", colorNormal = "\u001B[0m";
 
 
-        int menuGestor = 0, opcion = 0, opcion2 = 0;
+        int menuGestor, opcion, opcion2;
 
         // Información de proyectos
         String nombreProyecto01 = "d", nombreProyecto02 = "", nombreProyecto03 = "";
@@ -36,9 +36,9 @@ public class Main {
         int preciorecompensa1Proyecto03 = 0, preciorecompensa2Proyecto03 = 0, preciorecompensa3Proyecto03 = 0;
 
         // Gráfico de Barras
-        int graficoBarrasProyecto01 = 0;
-        int graficoBarrasProyecto02 = 0;
-        int graficoBarrasProyecto03 = 0;
+        int graficoBarrasProyecto01;
+        int graficoBarrasProyecto02;
+        int graficoBarrasProyecto03;
         int x, y;
 
         do {
@@ -54,13 +54,13 @@ public class Main {
                         System.out.print("Usuario: ");
                         usuario = s.nextLine();
                         System.out.print("Contraseña: ");
-                        contraseña = s.nextLine();
+                        contrasena = s.nextLine();
                         contadorTotal++;
                         // VALIDACIÓN DE GESTOR
                         if (usuario.equals(GESTOR_USUARIO)) {
                             if (bloquearGestor) {
                                 System.out.println("El usuario " + GESTOR_USUARIO + " está bloqueado.");
-                            } else if (contraseña.equals(GESTOR_CONTRASEÑA)) {
+                            } else if (contrasena.equals(GESTOR_CONTRASENA)) {
                                 System.out.println("Bienvenido " + GESTOR_USUARIO);
                                 gestor = true;
                                 contadorFallosGestor = 0;
@@ -77,7 +77,7 @@ public class Main {
                         if (usuario.equals(INVERSOR1_USUARIO)) {
                             if (bloquearInversor1) {
                                 System.out.println("El usuario " + INVERSOR1_USUARIO + " está bloqueado.");
-                            } else if (contraseña.equals(INVERSOR1_CONTRASEÑA)) {
+                            } else if (contrasena.equals(INVERSOR1_CONTRASENA)) {
                                 System.out.println("Bienvenido " + INVERSOR1_USUARIO);
                                 inversor1 = true;
                                 contadorFallosInversor1 = 0;
@@ -94,7 +94,7 @@ public class Main {
                         if (usuario.equals(INVERSOR2_USUARIO)) {
                             if (bloquearInversor2) {
                                 System.out.println("El usuario " + INVERSOR2_USUARIO + " está bloqueado.");
-                            } else if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
+                            } else if (contrasena.equals(INVERSOR2_CONTRASENA)) {
                                 System.out.println("Bienvenido " + INVERSOR2_USUARIO);
                                 inversor2 = true;
                                 contadorFallosInversor2 = 0;
@@ -109,7 +109,7 @@ public class Main {
                         }
                         // VALIDACIÓN DE ADMIN
                         if (usuario.equals(ADMIN_USUARIO)) {
-                            if (contraseña.equals(ADMIN_CONTRASEÑA)) {
+                            if (contrasena.equals(ADMIN_CONTRASENA)) {
                                 System.out.println("Bienvenido " + ADMIN_USUARIO);
                                 admin = true;
                             } else {
@@ -118,7 +118,7 @@ public class Main {
                         }
                         if (contadorTotal == 3 && !gestor && !inversor1 && !inversor2 && !admin) {
                             System.out.println("Se han agotado los intentos permitidos. Inténtelo de nuevo.");
-                            contadorTotal = 0; // Reiniciar el contador total para permitir nuevos intentos
+                            contadorTotal = 0;
                         }
                     } while (!gestor && !inversor1 && !inversor2 && !admin);
                     if (admin){
@@ -204,108 +204,140 @@ public class Main {
                                                                 } else{
                                                                     System.out.println("PROYECTO 01");
                                                                     System.out.println("Nombre: " + nombreProyecto01);
-                                                                    System.out.println("Descripción: " + descProyecto01);
                                                                     System.out.println("Categoría: " + categoriaProyecto01);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto01 = (int) (((double)cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto01; x++){
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto01){
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 01");
+                                                                        System.out.println("Nombre: " + nombreProyecto01);
+                                                                        System.out.println("Descripción: " + descProyecto01);
+                                                                        System.out.println("Categoría: " + categoriaProyecto01);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad finaciada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto01; x++) {
+                                                                            System.out.print("▓");
                                                                         }
-                                                                    }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
+                                                                        if (0 != 100 - graficoBarrasProyecto01) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    }else System.out.println("Opción inválida");
                                                                 }
                                                                 break;
                                                             case 2:
-                                                                if (nombreProyecto02.equals("")){
+                                                                if (nombreProyecto02.equals("")) {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("PROYECTO 02");
                                                                     System.out.println("Nombre: " + nombreProyecto02);
-                                                                    System.out.println("Descripción: " + descProyecto02);
                                                                     System.out.println("Categoría: " + categoriaProyecto02);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto02 = (int) (((double)cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto02) {
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 02");
+                                                                        System.out.println("Nombre: " + nombreProyecto02);
+                                                                        System.out.println("Descripción: " + descProyecto02);
+                                                                        System.out.println("Categoría: " + categoriaProyecto02);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                            System.out.print("▓");
                                                                         }
+                                                                        if (0 != 100 - graficoBarrasProyecto02) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    } else {
+                                                                        System.out.println("Opción inválida");
                                                                     }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
                                                                 }
                                                                 break;
                                                             case 3:
-                                                                if (nombreProyecto03.equals("")){
+                                                                if (nombreProyecto03.equals("")) {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("PROYECTO 03");
                                                                     System.out.println("Nombre: " + nombreProyecto03);
-                                                                    System.out.println("Descripción: " + descProyecto03);
                                                                     System.out.println("Categoría: " + categoriaProyecto03);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto03 = (int) (((double)cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto03) {
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 03");
+                                                                        System.out.println("Nombre: " + nombreProyecto03);
+                                                                        System.out.println("Descripción: " + descProyecto03);
+                                                                        System.out.println("Categoría: " + categoriaProyecto03);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                            System.out.print("▓");
                                                                         }
+                                                                        if (0 != 100 - graficoBarrasProyecto03) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    } else {
+                                                                        System.out.println("Opción inválida");
                                                                     }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
                                                                 }
                                                                 break;
+
                                                             case 4:
                                                                 System.out.println("Saliendo...");
                                                                 break;
@@ -388,27 +420,22 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
                                                                                             recompensa1Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
                                                                                             recompensa2Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
+
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
                                                                                             recompensa3Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -481,27 +508,21 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
                                                                                             recompensa1Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
                                                                                             recompensa2Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
                                                                                             recompensa3Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -576,27 +597,21 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
                                                                                             recompensa1Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
                                                                                             recompensa2Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
                                                                                             recompensa3Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -620,15 +635,14 @@ public class Main {
                                                 }
                                                 break;
                                             case 3 :
-                                                if (nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("") && descProyecto01.equals("") && descProyecto02.equals("") && descProyecto03.equals("") && categoriaProyecto01.equals("")){
+                                                if (!(nombreProyecto01.isEmpty() && nombreProyecto02.isEmpty() && nombreProyecto03.isEmpty())){
                                                     do {
                                                         System.out.println("""
-                                        ¿Qué proyecto quieres eliminar?
-                                        1. Primer Proyecto.
-                                        2. Segundo Proyecto.
-                                        3. Tercero Proyecto.
-                                        4. Volver.
-                                        """);
+                                                        ¿Qué proyecto quieres eliminar?
+                                                        1. Primer Proyecto.
+                                                        2. Segundo Proyecto.
+                                                        3. Tercero Proyecto.
+                                                        4. Volver.""");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
@@ -651,6 +665,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto01 = 0;
                                                                         preciorecompensa2Proyecto01 = 0;
                                                                         preciorecompensa3Proyecto01 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
@@ -676,6 +691,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto02 = 0;
                                                                         preciorecompensa2Proyecto02 = 0;
                                                                         preciorecompensa3Proyecto02 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
@@ -702,6 +718,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto03 = 0;
                                                                         preciorecompensa2Proyecto03 = 0;
                                                                         preciorecompensa3Proyecto03 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
@@ -735,20 +752,22 @@ public class Main {
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
-                                                do {
-                                                    System.out.println("Introduzca su antiguo usuario");
-                                                    usuario = s.nextLine();
-                                                }while (usuario.equals(ADMIN_USUARIO));
-                                                System.out.println("Introduzca su nuevo usario");
-                                                ADMIN_USUARIO = s.nextLine();
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(ADMIN_CONTRASENA)){
+                                                    System.out.print("Nuevo usuario: ");
+                                                    ADMIN_USUARIO=s.nextLine();
+                                                }
+                                                else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 2:
-                                                do{
-                                                    System.out.println("Introduzca su antigua contraseña");
-                                                    contraseña = s.nextLine();
-                                                }while (contraseña.equals(ADMIN_CONTRASEÑA));
-                                                System.out.println("Introduzca su nueva contraseña");
-                                                ADMIN_CONTRASEÑA = s.nextLine();
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(ADMIN_CONTRASENA)){
+                                                    System.out.print("Nueva contrasena: ");
+                                                    ADMIN_CONTRASENA =s.nextLine();
+                                                }
+                                                else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 3:
                                                 System.out.println("Vuelta al menu Administrador");
@@ -769,19 +788,19 @@ public class Main {
                         } while (opcion2 != 4);
                     } else if (gestor && !bloquearGestor) {
                         do{
-                            System.out.println(amarillo + "*************");
+                            System.out.println(amarillo + "░************");
                             System.out.println(morado + " MENÚ GESTOR");
-                            System.out.println(amarillo + "*************" + colorNormal);
+                            System.out.println(amarillo + "░************" + colorNormal);
                             System.out.println("1. Mis proyectos.");
-                            System.out.println("2. Cambiar usuario/contraseña.");
+                            System.out.println("2. Cambiar usuario/contrasena.");
                             System.out.println("3. Cerrar sesión.");
                             menuGestor = Integer.parseInt(s.nextLine());
                             switch (menuGestor){
                                 case 1:
                                     do{
-                                        System.out.println(amarillo + "*************");
+                                        System.out.println(amarillo + "░************");
                                         System.out.println(morado + "MIS PROYECTOS");
-                                        System.out.println(amarillo + "*************" + colorNormal);
+                                        System.out.println(amarillo + "░************" + colorNormal);
                                         System.out.println("""
                                         1. Ver proyecto.
                                         2. Crear proyecto.
@@ -810,106 +829,137 @@ public class Main {
                                                                 } else{
                                                                     System.out.println("PROYECTO 01");
                                                                     System.out.println("Nombre: " + nombreProyecto01);
-                                                                    System.out.println("Descripción: " + descProyecto01);
                                                                     System.out.println("Categoría: " + categoriaProyecto01);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto01);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto01; x++){
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto01){
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 01");
+                                                                        System.out.println("Nombre: " + nombreProyecto01);
+                                                                        System.out.println("Descripción: " + descProyecto01);
+                                                                        System.out.println("Categoría: " + categoriaProyecto01);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad finaciada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto01; x++) {
+                                                                            System.out.print("▓");
                                                                         }
-                                                                    }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
+                                                                        if (0 != 100 - graficoBarrasProyecto01) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    }else System.out.println("Opción inválida");
                                                                 }
                                                                 break;
                                                             case 2:
-                                                                if (nombreProyecto02.equals("")){
+                                                                if (nombreProyecto02.equals("")) {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("PROYECTO 02");
                                                                     System.out.println("Nombre: " + nombreProyecto02);
-                                                                    System.out.println("Descripción: " + descProyecto02);
                                                                     System.out.println("Categoría: " + categoriaProyecto02);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto02);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto02 = (int) (((double)cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto02) {
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 02");
+                                                                        System.out.println("Nombre: " + nombreProyecto02);
+                                                                        System.out.println("Descripción: " + descProyecto02);
+                                                                        System.out.println("Categoría: " + categoriaProyecto02);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                            System.out.print("▓");
                                                                         }
+                                                                        if (0 != 100 - graficoBarrasProyecto02) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    } else {
+                                                                        System.out.println("Opción inválida");
                                                                     }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
                                                                 }
                                                                 break;
                                                             case 3:
-                                                                if (nombreProyecto03.equals("")){
+                                                                if (nombreProyecto03.equals("")) {
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
                                                                 } else {
                                                                     System.out.println("PROYECTO 03");
                                                                     System.out.println("Nombre: " + nombreProyecto03);
-                                                                    System.out.println("Descripción: " + descProyecto03);
                                                                     System.out.println("Categoría: " + categoriaProyecto03);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                                    System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
-                                                                    System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
-                                                                    System.out.println("Recompensas: ");
-                                                                    System.out.println("Recompensa 1: " + recompensa1Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
-                                                                    System.out.println("Recompensa 2: " + recompensa2Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
-                                                                    System.out.println("Recompensa 3: " + recompensa3Proyecto03);
-                                                                    System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
-                                                                    System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                            "| : Parte financiada.\n" +
-                                                                            "* : Parte por financiar.");
-                                                                    graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
-                                                                    System.out.print("[");
-                                                                    for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                        System.out.print("|");
-                                                                    }
-                                                                    if (0 != 100 - graficoBarrasProyecto03) {
-                                                                        for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
-                                                                            System.out.print("*");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    String InvertirODetallada = s.nextLine();
+                                                                    if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                                        System.out.println("PROYECTO 03");
+                                                                        System.out.println("Nombre: " + nombreProyecto03);
+                                                                        System.out.println("Descripción: " + descProyecto03);
+                                                                        System.out.println("Categoría: " + categoriaProyecto03);
+                                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                                        System.out.println("Recompensas: ");
+                                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                                        System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                                        System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                                "▓ : Parte financiada.\n" +
+                                                                                "░ : Parte por financiar.");
+                                                                        graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
+                                                                        System.out.print("[");
+                                                                        for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                            System.out.print("▓");
                                                                         }
+                                                                        if (0 != 100 - graficoBarrasProyecto03) {
+                                                                            for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                                System.out.print("░");
+                                                                            }
+                                                                        }
+                                                                        System.out.print("]" + x + "%");
+                                                                        System.out.println();
+                                                                    } else {
+                                                                        System.out.println("Opción inválida");
                                                                     }
-                                                                    System.out.print("]" + x + "%");
-                                                                    System.out.println();
                                                                 }
                                                                 break;
                                                             case 4:
@@ -934,7 +984,6 @@ public class Main {
                                                     switch(opcion){
                                                         case 1:
                                                             System.out.println("Nombre:");
-                                                            s.nextLine();
                                                             nombreProyecto01 = s.nextLine();
                                                             if (nombreProyecto01.equals("")){
                                                                 System.out.println("Para crear un proyecto DEBES ponerle nombre.");
@@ -948,7 +997,6 @@ public class Main {
                                                                 cantNecesariaProyecto01 = Integer.parseInt(s.nextLine());
                                                                 System.out.println("Cantidad financiada:");
                                                                 cantFinanciadaProyecto01 = Integer.parseInt(s.nextLine());
-                                                                s.nextLine();
                                                                 if (cantNecesariaProyecto01 >= cantFinanciadaProyecto01){
                                                                     System.out.println("Fecha de Inicio de inversiones:");
                                                                     fechaInicioProyecto01 = s.nextLine();
@@ -994,7 +1042,6 @@ public class Main {
                                                             break;
                                                         case 2:
                                                             System.out.println("Nombre:");
-                                                            s.nextLine();
                                                             nombreProyecto02 = s.nextLine();
                                                             if (nombreProyecto02.equals("")){
                                                                 System.out.println("Para crear un proyecto DEBES ponerle nombre.");
@@ -1015,11 +1062,11 @@ public class Main {
                                                                     fechaFinalProyecto02 = s.nextLine();
                                                                     do {
                                                                         System.out.println("""
-                                                                ¿Qué recompensa quieres crear?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
+                                                                        ¿Qué recompensa quieres crear?
+                                                                        1. Recompensa 1.
+                                                                        2. Recompensa 2.
+                                                                        3. Recompensa 3.
+                                                                        4. Volver""");
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
@@ -1053,7 +1100,6 @@ public class Main {
                                                             break;
                                                         case 3:
                                                             System.out.println("Nombre:");
-                                                            s.nextLine();
                                                             nombreProyecto03 = s.nextLine();
                                                             if (nombreProyecto03.equals("")){
                                                                 System.out.println("Para crear un proyecto DEBES ponerle nombre.");
@@ -1067,7 +1113,6 @@ public class Main {
                                                                 cantNecesariaProyecto03 = Integer.parseInt(s.nextLine());
                                                                 System.out.println("Cantidad financiada:");
                                                                 cantFinanciadaProyecto03 = Integer.parseInt(s.nextLine());
-                                                                s.nextLine();
                                                                 if (cantNecesariaProyecto03 >= cantFinanciadaProyecto03){
                                                                     System.out.println("Fecha de Inicio de inversiones:");
                                                                     fechaInicioProyecto03 = s.nextLine();
@@ -1084,33 +1129,26 @@ public class Main {
                                                                         switch(opcion){
                                                                             case 1:
                                                                                 System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                s.nextLine();
                                                                                 recompensa1Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 1:");
                                                                                 preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                s.nextLine();
                                                                                 break;
                                                                             case 2:
                                                                                 System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                s.nextLine();
                                                                                 recompensa2Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 2:");
                                                                                 preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                s.nextLine();
                                                                                 break;
                                                                             case 3:
                                                                                 System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                s.nextLine();
                                                                                 recompensa3Proyecto03 = s.nextLine();
                                                                                 System.out.println("Escriba el precio de la recompensa 3:");
                                                                                 preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                s.nextLine();
                                                                                 break;
                                                                             case 4:
                                                                                 System.out.println("Saliendo...");
                                                                                 break;
                                                                         }
-
                                                                     }while(opcion != 4);
                                                                 } else {
                                                                     System.out.println("La cantidad financiada debe ser menor o igual que la cantidad necesaria.");
@@ -1198,15 +1236,12 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
                                                                                             recompensa1Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
                                                                                             recompensa2Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
@@ -1214,11 +1249,9 @@ public class Main {
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
                                                                                             recompensa3Proyecto01 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -1291,27 +1324,21 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            s.nextLine();
                                                                                             recompensa1Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            s.nextLine();
                                                                                             recompensa2Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            s.nextLine();
                                                                                             recompensa3Proyecto02 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -1386,27 +1413,21 @@ public class Main {
                                                                                     switch(opcion){
                                                                                         case 1:
                                                                                             System.out.println("Escriba la descripción de la recompensa 1:");
-
                                                                                             recompensa1Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 1:");
                                                                                             preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
-
                                                                                             break;
                                                                                         case 2:
                                                                                             System.out.println("Escriba la descripción de la recompensa 2:");
-
                                                                                             recompensa2Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 2:");
                                                                                             preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
-
                                                                                             break;
                                                                                         case 3:
                                                                                             System.out.println("Escriba la descripción de la recompensa 3:");
-
                                                                                             recompensa3Proyecto03 = s.nextLine();
                                                                                             System.out.println("Escriba el precio de la recompensa 3:");
                                                                                             preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
-
                                                                                             break;
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
@@ -1431,15 +1452,14 @@ public class Main {
                                                 }
                                                 break;
                                             case 4:
-                                                if (nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("") && descProyecto01.equals("") && descProyecto02.equals("") && descProyecto03.equals("") && categoriaProyecto01.equals("")){
+                                                if (!(nombreProyecto01.isEmpty() && nombreProyecto02.isEmpty() && nombreProyecto03.isEmpty())){
                                                     do {
                                                         System.out.println("""
                                                         ¿Qué proyecto quieres eliminar?
                                                         1. Primer Proyecto.
                                                         2. Segundo Proyecto.
                                                         3. Tercero Proyecto.
-                                                        4. Volver.
-                                                        """);
+                                                        4. Volver.""");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
@@ -1462,11 +1482,13 @@ public class Main {
                                                                         preciorecompensa1Proyecto01 = 0;
                                                                         preciorecompensa2Proyecto01 = 0;
                                                                         preciorecompensa3Proyecto01 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
                                                                     }
                                                                 }
+                                                                break;
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")){
                                                                     System.out.println("Este proyecto no ha sido creado aún.");
@@ -1487,6 +1509,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto02 = 0;
                                                                         preciorecompensa2Proyecto02 = 0;
                                                                         preciorecompensa3Proyecto02 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
@@ -1513,6 +1536,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto03 = 0;
                                                                         preciorecompensa2Proyecto03 = 0;
                                                                         preciorecompensa3Proyecto03 = 0;
+                                                                        break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
                                                                         break;
@@ -1539,11 +1563,11 @@ public class Main {
                                     break;
                                 case 2:
                                     do {
-                                        System.out.println(amarillo + "**************************");
+                                        System.out.println(amarillo + "░*************************");
                                         System.out.println(morado + "CAMBIAR USUARIO Y CONTRASEÑA");
-                                        System.out.println(amarillo + "**************************" + colorNormal);
+                                        System.out.println(amarillo + "░*************************" + colorNormal);
                                         System.out.println("1. Cambiar usuario.");
-                                        System.out.println("2. Cambiar contraseña.");
+                                        System.out.println("2. Cambiar contrasena.");
                                         System.out.println("3. Volver al Menú Gestor.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
@@ -1552,8 +1576,7 @@ public class Main {
                                                 String userAntiguo = s.nextLine();
                                                 if (userAntiguo.equals(GESTOR_USUARIO)){
                                                     System.out.println("Inserte su nuevo usuario:");
-                                                    String userNuevo = s.nextLine();
-                                                    GESTOR_USUARIO = userNuevo;
+                                                    GESTOR_USUARIO = s.nextLine();
                                                     System.out.println("Su usuario ahora es " + GESTOR_USUARIO + ".");
                                                 }else {
                                                     System.out.println("El usuario no es correcto, inténtelo de nuevo.");
@@ -1561,15 +1584,14 @@ public class Main {
                                                 }
                                                 break;
                                             case 2:
-                                                System.out.println("Inserte su anterior contraseña:");
+                                                System.out.println("Inserte su anterior contrasena:");
                                                 String passwordUsuario = s.nextLine();
-                                                if (passwordUsuario.equals(GESTOR_CONTRASEÑA)){
-                                                    System.out.println("Inserte su nueva contraseña:");
-                                                    String passwordNueva = s.nextLine();
-                                                    GESTOR_CONTRASEÑA = passwordNueva;
-                                                    System.out.println("Su contraseña ha sido cambiada.");
+                                                if (passwordUsuario.equals(GESTOR_CONTRASENA)){
+                                                    System.out.println("Inserte su nueva contrasena:");
+                                                    GESTOR_CONTRASENA = s.nextLine();
+                                                    System.out.println("Su contrasena ha sido cambiada.");
                                                 }else {
-                                                    System.out.println("La contraseña no es correcta, inténtelo de nuevo.");
+                                                    System.out.println("La contrasena no es correcta, inténtelo de nuevo.");
                                                     break;
                                                 }
                                                 break;
@@ -1625,9 +1647,40 @@ public class Main {
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy01);
-                                                        System.out.println("¿Deseas invertir?(s/n)");
-                                                        String inversionSiNo = s.nextLine();
-                                                        if (inversionSiNo.equalsIgnoreCase("s")) {
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")){
+                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println("Nombre: " + nombreProyecto01);
+                                                            System.out.println("Descripción: " + descProyecto01);
+                                                            System.out.println("Categoría: " + categoriaProyecto01);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad finaciada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto01; x++){
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto01){
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")){
                                                             System.out.print("Cantidad a invertir: ");
                                                             cantidadInvertir = Integer.parseInt(s.nextLine());
                                                             if (cantidadInvertir > carteraInversor1) {
@@ -1643,51 +1696,134 @@ public class Main {
                                                                 cantidadInvertidaInversor1Proy01 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Saliendo...");
-                                                            break;
+                                                            System.out.println("Opción inválida.");
                                                         }
                                                     }
                                                     break;
                                                 case 2:
-                                                    if (nombreProyecto02.equals("")){
+                                                    if (nombreProyecto02.equals("")) {
                                                         System.out.println("Este proyecto no ha sido creado aún.");
                                                     } else {
                                                         System.out.println("PROYECTO 02");
                                                         System.out.println("Nombre: " + nombreProyecto02);
-                                                        System.out.println("Descripción: " + descProyecto02);
                                                         System.out.println("Categoría: " + categoriaProyecto02);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
-                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
-                                                        System.out.println("Recompensas: ");
-                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto02);
-                                                        System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
-                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto02);
-                                                        System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
-                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto02);
-                                                        System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                        System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy02);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println("Nombre: " + nombreProyecto02);
+                                                            System.out.println("Descripción: " + descProyecto02);
+                                                            System.out.println("Categoría: " + categoriaProyecto02);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto02) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")) {
+                                                            System.out.print("Cantidad a invertir: ");
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
+                                                            if (cantidadInvertir > carteraInversor1) {
+                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                            } else if (cantidadInvertir > (cantNecesariaProyecto02 - cantFinanciadaProyecto02)) {
+                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                            } else if (cantidadInvertir <= 0) {
+                                                                System.out.println("Introduce una cantidad mayor a 0.");
+                                                            } else {
+                                                                System.out.println("Has invertido " + cantidadInvertir + " euros.");
+                                                                carteraInversor1 = carteraInversor1 - cantidadInvertir;
+                                                                cantFinanciadaProyecto02 += cantidadInvertir;
+                                                                cantidadInvertidaInversor1Proy02 += cantidadInvertir;
+                                                            }
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
                                                     }
                                                     break;
                                                 case 3:
-                                                    if (nombreProyecto03.equals("")){
+                                                    if (nombreProyecto03.equals("")) {
                                                         System.out.println("Este proyecto no ha sido creado aún.");
                                                     } else {
                                                         System.out.println("PROYECTO 03");
                                                         System.out.println("Nombre: " + nombreProyecto03);
-                                                        System.out.println("Descripción: " + descProyecto03);
                                                         System.out.println("Categoría: " + categoriaProyecto03);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                        System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
-                                                        System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
-                                                        System.out.println("Recompensas: ");
-                                                        System.out.println("Recompensa 1: " + recompensa1Proyecto03);
-                                                        System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
-                                                        System.out.println("Recompensa 2: " + recompensa2Proyecto03);
-                                                        System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
-                                                        System.out.println("Recompensa 3: " + recompensa3Proyecto03);
-                                                        System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                        System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy03);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println("Nombre: " + nombreProyecto03);
+                                                            System.out.println("Descripción: " + descProyecto03);
+                                                            System.out.println("Categoría: " + categoriaProyecto03);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto03) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")) {
+                                                            System.out.print("Cantidad a invertir: ");
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
+                                                            if (cantidadInvertir > carteraInversor1) {
+                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                            } else if (cantidadInvertir > (cantNecesariaProyecto03 - cantFinanciadaProyecto03)) {
+                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                            } else if (cantidadInvertir <= 0) {
+                                                                System.out.println("Introduce una cantidad mayor a 0.");
+                                                            } else {
+                                                                System.out.println("Has invertido " + cantidadInvertir + " euros.");
+                                                                carteraInversor1 = carteraInversor1 - cantidadInvertir;
+                                                                cantFinanciadaProyecto03 += cantidadInvertir;
+                                                                cantidadInvertidaInversor1Proy03 += cantidadInvertir;
+                                                            }
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
                                                     }
                                                     break;
                                                 case 4:
@@ -1701,6 +1837,168 @@ public class Main {
                                     }
                                     break;
                                 case 2:
+                                    if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
+                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                    }else{
+                                        do {
+                                            System.out.println("""
+                                        ¿Qué proyecto quieres ver?
+                                        1. Primer proyecto.
+                                        2. Segundo proyecto.
+                                        3. Tercer proyecto.
+                                        4. Volver.""");
+                                            opcion = Integer.parseInt(s.nextLine());
+                                            switch(opcion){
+                                                case 1:
+                                                    if (nombreProyecto01.equals("")){
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else{
+                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println("Nombre: " + nombreProyecto01);
+                                                        System.out.println("Categoría: " + categoriaProyecto01);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")){
+                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println("Nombre: " + nombreProyecto01);
+                                                            System.out.println("Descripción: " + descProyecto01);
+                                                            System.out.println("Categoría: " + categoriaProyecto01);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad finaciada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto01; x++){
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto01){
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 2:
+                                                    if (nombreProyecto02.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println("Nombre: " + nombreProyecto02);
+                                                        System.out.println("Categoría: " + categoriaProyecto02);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println("Nombre: " + nombreProyecto02);
+                                                            System.out.println("Descripción: " + descProyecto02);
+                                                            System.out.println("Categoría: " + categoriaProyecto02);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto02) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 3:
+                                                    if (nombreProyecto03.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println("Nombre: " + nombreProyecto03);
+                                                        System.out.println("Categoría: " + categoriaProyecto03);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println("Nombre: " + nombreProyecto03);
+                                                            System.out.println("Descripción: " + descProyecto03);
+                                                            System.out.println("Categoría: " + categoriaProyecto03);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto03) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 4:
+                                                    System.out.println("Saliendo...");
+                                                    break;
+                                                default:
+                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    break;
+                                            }
+                                        }while (opcion != 4);
+                                    }
                                     break;
                                 case 3:
                                     do {
@@ -1772,27 +2070,27 @@ public class Main {
                                         System.out.println("""
                                                 CONFIGURACIÓN
                                                 1. Cambiar usuario.
-                                                2. Cambiar contraseña.
+                                                2. Cambiar contrasena.
                                                 3. Salir""");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
-                                                System.out.print("Escribe la contraseña: ");
-                                                contraseña = s.nextLine();
-                                                if (contraseña.equals(INVERSOR1_CONTRASEÑA)){
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(INVERSOR1_CONTRASENA)){
                                                     System.out.print("Nuevo usuario: ");
                                                     INVERSOR1_USUARIO=s.nextLine();
                                                 }
-                                                else System.out.println("La contraseña es incorrecta");
+                                                else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contraseña: ");
-                                                contraseña = s.nextLine();
-                                                if (contraseña.equals(INVERSOR1_CONTRASEÑA)){
-                                                    System.out.print("Nueva contraseña: ");
-                                                    INVERSOR1_CONTRASEÑA=s.nextLine();
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(INVERSOR1_CONTRASENA)){
+                                                    System.out.print("Nueva contrasena: ");
+                                                    INVERSOR1_CONTRASENA=s.nextLine();
                                                 }
-                                                else System.out.println("La contraseña es incorrecta");
+                                                else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 3:
                                                 break;
@@ -1817,8 +2115,379 @@ public class Main {
                             opcion = Integer.parseInt(s.nextLine());
                             switch (opcion) {
                                 case 1:
-                                    break;
+                                    if (nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")) {
+                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                    } else {
+                                        do {
+                                            System.out.println("""
+                                            ¿Qué proyecto quieres ver?
+                                            1. Primer proyecto.
+                                            2. Segundo proyecto.
+                                            3. Tercer proyecto.
+                                            4. Volver.""");
+                                            opcion = Integer.parseInt(s.nextLine());
+                                            switch(opcion) {
+                                                case 1:
+                                                    if (nombreProyecto01.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println("Nombre: " + nombreProyecto01);
+                                                        System.out.println("Categoría: " + categoriaProyecto01);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                        System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy01);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println("Nombre: " + nombreProyecto01);
+                                                            System.out.println("Descripción: " + descProyecto01);
+                                                            System.out.println("Categoría: " + categoriaProyecto01);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto01; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto01) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")) {
+                                                            System.out.print("Cantidad a invertir: ");
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
+                                                            if (cantidadInvertir > carteraInversor2) {
+                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                            } else if (cantidadInvertir > (cantNecesariaProyecto01 - cantFinanciadaProyecto01)) {
+                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                            } else if (cantidadInvertir <= 0) {
+                                                                System.out.println("Introduce una cantidad mayor a 0.");
+                                                            } else {
+                                                                System.out.println("Has invertido " + cantidadInvertir + " euros.");
+                                                                carteraInversor2 = carteraInversor2 - cantidadInvertir;
+                                                                cantFinanciadaProyecto01 += cantidadInvertir;
+                                                                cantidadInvertidaInversor2Proy01 += cantidadInvertir;
+                                                            }
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 2:
+                                                    if (nombreProyecto02.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println("Nombre: " + nombreProyecto02);
+                                                        System.out.println("Categoría: " + categoriaProyecto02);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                        System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy02);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println("Nombre: " + nombreProyecto02);
+                                                            System.out.println("Descripción: " + descProyecto02);
+                                                            System.out.println("Categoría: " + categoriaProyecto02);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto02) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")) {
+                                                            System.out.print("Cantidad a invertir: ");
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
+                                                            if (cantidadInvertir > carteraInversor2) {
+                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                            } else if (cantidadInvertir > (cantNecesariaProyecto02 - cantFinanciadaProyecto02)) {
+                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                            } else if (cantidadInvertir <= 0) {
+                                                                System.out.println("Introduce una cantidad mayor a 0.");
+                                                            } else {
+                                                                System.out.println("Has invertido " + cantidadInvertir + " euros.");
+                                                                carteraInversor2 = carteraInversor2 - cantidadInvertir;
+                                                                cantFinanciadaProyecto02 += cantidadInvertir;
+                                                                cantidadInvertidaInversor2Proy02 += cantidadInvertir;
+                                                            }
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 3:
+                                                    if (nombreProyecto03.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println("Nombre: " + nombreProyecto03);
+                                                        System.out.println("Categoría: " + categoriaProyecto03);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                        System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy03);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println("Nombre: " + nombreProyecto03);
+                                                            System.out.println("Descripción: " + descProyecto03);
+                                                            System.out.println("Categoría: " + categoriaProyecto03);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto03) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else if (InvertirODetallada.equals("y")) {
+                                                            System.out.print("Cantidad a invertir: ");
+                                                            cantidadInvertir = Integer.parseInt(s.nextLine());
+                                                            if (cantidadInvertir > carteraInversor2) {
+                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                            } else if (cantidadInvertir > (cantNecesariaProyecto03 - cantFinanciadaProyecto03)) {
+                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                            } else if (cantidadInvertir <= 0) {
+                                                                System.out.println("Introduce una cantidad mayor a 0.");
+                                                            } else {
+                                                                System.out.println("Has invertido " + cantidadInvertir + " euros.");
+                                                                carteraInversor2 = carteraInversor2 - cantidadInvertir;
+                                                                cantFinanciadaProyecto03 += cantidadInvertir;
+                                                                cantidadInvertidaInversor2Proy03 += cantidadInvertir;
+                                                            }
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 4:
+                                                    System.out.println("Saliendo...");
+                                                    break;
+                                                default:
+                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    break;
+                                            }
+                                        } while (opcion != 4);
+                                    }
                                 case 2:
+                                    if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
+                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                    }else{
+                                        do {
+                                            System.out.println("""
+                                        ¿Qué proyecto quieres ver?
+                                        1. Primer proyecto.
+                                        2. Segundo proyecto.
+                                        3. Tercer proyecto.
+                                        4. Volver.""");
+                                            opcion = Integer.parseInt(s.nextLine());
+                                            switch(opcion){
+                                                case 1:
+                                                    if (nombreProyecto01.equals("")){
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else{
+                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println("Nombre: " + nombreProyecto01);
+                                                        System.out.println("Categoría: " + categoriaProyecto01);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")){
+                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println("Nombre: " + nombreProyecto01);
+                                                            System.out.println("Descripción: " + descProyecto01);
+                                                            System.out.println("Categoría: " + categoriaProyecto01);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto01);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto01);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto01 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto01 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto01);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad finaciada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto01; x++){
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto01){
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 2:
+                                                    if (nombreProyecto02.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println("Nombre: " + nombreProyecto02);
+                                                        System.out.println("Categoría: " + categoriaProyecto02);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println("Nombre: " + nombreProyecto02);
+                                                            System.out.println("Descripción: " + descProyecto02);
+                                                            System.out.println("Categoría: " + categoriaProyecto02);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto02);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto02);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto02 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto02 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto02);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto02; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto02) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 3:
+                                                    if (nombreProyecto03.equals("")) {
+                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                    } else {
+                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println("Nombre: " + nombreProyecto03);
+                                                        System.out.println("Categoría: " + categoriaProyecto03);
+                                                        System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                        System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        String InvertirODetallada = s.nextLine();
+                                                        if (InvertirODetallada.equalsIgnoreCase("x")) {
+                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println("Nombre: " + nombreProyecto03);
+                                                            System.out.println("Descripción: " + descProyecto03);
+                                                            System.out.println("Categoría: " + categoriaProyecto03);
+                                                            System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
+                                                            System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
+                                                            System.out.println("Fecha de inicio de Inversiones: " + fechaInicioProyecto03);
+                                                            System.out.println("Fecha final de Inversiones: " + fechaFinalProyecto03);
+                                                            System.out.println("Recompensas: ");
+                                                            System.out.println("Recompensa 1: " + recompensa1Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa1Proyecto03 + "€");
+                                                            System.out.println("Recompensa 2: " + recompensa2Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa2Proyecto03 + "€");
+                                                            System.out.println("Recompensa 3: " + recompensa3Proyecto03);
+                                                            System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
+                                                            System.out.println("Gráfico de barras de cantidad financiada: \n" +
+                                                                    "▓ : Parte financiada.\n" +
+                                                                    "░ : Parte por financiar.");
+                                                            graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
+                                                            System.out.print("[");
+                                                            for (x = 0; x != graficoBarrasProyecto03; x++) {
+                                                                System.out.print("▓");
+                                                            }
+                                                            if (0 != 100 - graficoBarrasProyecto03) {
+                                                                for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
+                                                                    System.out.print("░");
+                                                                }
+                                                            }
+                                                            System.out.print("]" + x + "%");
+                                                            System.out.println();
+                                                        } else {
+                                                            System.out.println("Opción inválida.");
+                                                        }
+                                                    }
+                                                    break;
+                                                case 4:
+                                                    System.out.println("Saliendo...");
+                                                    break;
+                                                default:
+                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    break;
+                                            }
+                                        }while (opcion != 4);
+                                    }
                                     break;
                                 case 3:
                                     do {
@@ -1891,25 +2560,25 @@ public class Main {
                                         System.out.println("""
                                                 CONFIGURACIÓN
                                                 1. Cambiar usuario.
-                                                2. Cambiar contraseña.
+                                                2. Cambiar contrasena.
                                                 3. Salir""");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
-                                                System.out.print("Escribe la contraseña: ");
-                                                contraseña = s.nextLine();
-                                                if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(INVERSOR2_CONTRASENA)){
                                                     System.out.print("Nuevo usuario: ");
                                                     INVERSOR2_USUARIO = s.nextLine();
-                                                } else System.out.println("La contraseña es incorrecta");
+                                                } else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contraseña: ");
-                                                contraseña = s.nextLine();
-                                                if (contraseña.equals(INVERSOR2_CONTRASEÑA)) {
-                                                    System.out.print("Nueva contraseña: ");
-                                                    INVERSOR2_CONTRASEÑA = s.nextLine();
-                                                } else System.out.println("La contraseña es incorrecta");
+                                                System.out.print("Escribe la contrasena: ");
+                                                contrasena = s.nextLine();
+                                                if (contrasena.equals(INVERSOR2_CONTRASENA)) {
+                                                    System.out.print("Nueva contrasena: ");
+                                                    INVERSOR2_CONTRASENA = s.nextLine();
+                                                } else System.out.println("La contrasena es incorrecta");
                                                 break;
                                             case 3:
                                                 break;
@@ -1922,7 +2591,7 @@ public class Main {
                             }
                         } while (opcion != 6);
                     }
-                        case 2: // se pone case 2 para que no salga el mensaje de default al pulsar 2
+                case 2: // se pone case 2 para que no salga el mensaje de default al pulsar 2
                     break;
                 default:
                     System.out.println("Vuelve a intentarlo");
