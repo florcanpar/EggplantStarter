@@ -1335,7 +1335,7 @@ import java.util.Scanner;
                                                         System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                         break;
                                                 }
-                                            }while(opcion != 5);
+                                            }while(opcion != 4);
                                             break;
                                         case 2:
                                             do {
@@ -1387,7 +1387,7 @@ import java.util.Scanner;
                                             System.out.println(amarillo + "Opción inválida." + colorNormal);
                                             break;
                                     }
-                                }while(menuGestor != 4);
+                                }while(menuGestor != 3);
                             } else if (inversor1 && !bloquearInversor1) {
                                 do {
                                     System.out.println(morado +"╭ ─────┉─────"+ amarillo +" • "+ morado +"─────┉───── ╮");
