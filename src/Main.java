@@ -10,8 +10,8 @@ public class Main {
         int carteraInversor1 = 0, carteraInversor2 = 0, dineroAnadido, cantidadInvertir, cantidadInvertidaInversor1Proy01 = 0, cantidadInvertidaInversor1Proy02 = 0, cantidadInvertidaInversor1Proy03 = 0,
                 cantidadInvertidaInversor2Proy01 = 0, cantidadInvertidaInversor2Proy02 = 0, cantidadInvertidaInversor2Proy03 = 0;
 
-        String negro = "\033[30m", rojo = "\033[31m", verde = "\033[32m", amarillo = "\033[33m", azul = "\033[34m",
-                morado = "\033[35m", cyan = "\033[36m", blanco = "\033[37m", colorNormal = "\u001B[0m";
+        String  rojo = "\033[31m", verde = "\033[32m", amarillo = "\033[33m", azul = "\033[34m",
+                morado = "\033[35m", cyan = "\033[36m", colorNormal = "\u001B[0m";
 
 
         int menuGestor, opcion, opcion2;
@@ -42,10 +42,26 @@ public class Main {
         int x, y;
 
         do {
-            System.out.println("""
+            System.out.println(morado + """
+                    ⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⢿⡄⠀⢀⣦⠀⠀⠀⠀⠀⠀⠀⠀BIENVENIDO⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⢰⣾⣷⣴⣾⣿⣴⣿⠏⠀⠀⠀⠀⠀⠀⠀ A⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠈⢻⣿⣿⣿⡿⠿⢿⡟⢿⣆⠀⠀⠀⠀ EGGPLANT⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠺⡿⠻⠟⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀STARTER⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠰⡇⠀⠀⠀⠀⠀⠀⠀⠈⠻⣦⣄⣀⣀⣀⣠⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀
+                    ⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⢉⣽⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀
+                    ⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀
+                    ⠀⠀⠀⠀⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀
+                    ⠀⠀⠀⠀⠀⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀
+                    ⠀⠀⠀⠀⠀⠀⠙⢷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⡿⠛⣿⠇⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⣠⣾⠋⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠳⠶⣦⣤⣄⣀⣀⣀⣀⣤⣤⡶⠾⠋⠁⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀
+                    
                     Seleccione una opción:\s
                     1.- Iniciar sesión.
-                    2.- Salir.""");
+                    2.- Salir.""" + colorNormal);
             opcion= Integer.parseInt(s.nextLine());
             switch (opcion){
                 case 1:
@@ -59,16 +75,16 @@ public class Main {
                         // VALIDACIÓN DE GESTOR
                         if (usuario.equals(GESTOR_USUARIO)) {
                             if (bloquearGestor) {
-                                System.out.println("El usuario " + GESTOR_USUARIO + " está bloqueado.");
+                                System.out.println("El usuario " + GESTOR_USUARIO + " está " + rojo +"bloqueado." + colorNormal);
                             } else if (contrasena.equals(GESTOR_CONTRASENA)) {
-                                System.out.println("Bienvenido " + GESTOR_USUARIO);
+                                System.out.println(verde +"Bienvenido " + GESTOR_USUARIO + colorNormal);
                                 gestor = true;
                                 contadorFallosGestor = 0;
                             } else {
-                                System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
+                                System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                                 contadorFallosGestor++;
                                 if (contadorFallosGestor > 2) {
-                                    System.out.println("Usuario " + GESTOR_USUARIO + " bloqueado.");
+                                    System.out.println("Usuario " + GESTOR_USUARIO + rojo +"bloqueado." + colorNormal);
                                     bloquearGestor = true;
                                 }
                             }
@@ -76,16 +92,16 @@ public class Main {
                         // VALIDACIÓN DE INVERSOR1
                         if (usuario.equals(INVERSOR1_USUARIO)) {
                             if (bloquearInversor1) {
-                                System.out.println("El usuario " + INVERSOR1_USUARIO + " está bloqueado.");
+                                System.out.println("El usuario " + INVERSOR1_USUARIO + " está " + rojo +"bloqueado." + colorNormal);
                             } else if (contrasena.equals(INVERSOR1_CONTRASENA)) {
-                                System.out.println("Bienvenido " + INVERSOR1_USUARIO);
+                                System.out.println(verde +"Bienvenido " + INVERSOR1_USUARIO + colorNormal);
                                 inversor1 = true;
                                 contadorFallosInversor1 = 0;
                             } else {
-                                System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
+                                System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + ". Vuelva a intentarlo.");
                                 contadorFallosInversor1++;
                                 if (contadorFallosInversor1 > 2) {
-                                    System.out.println("Usuario " + INVERSOR1_USUARIO + " bloqueado.");
+                                    System.out.println("Usuario " + INVERSOR1_USUARIO + rojo +"bloqueado." + colorNormal);
                                     bloquearInversor1 = true;
                                 }
                             }
@@ -93,16 +109,16 @@ public class Main {
                         // VALIDACIÓN DE INVERSOR2
                         if (usuario.equals(INVERSOR2_USUARIO)) {
                             if (bloquearInversor2) {
-                                System.out.println("El usuario " + INVERSOR2_USUARIO + " está bloqueado.");
+                                System.out.println("El usuario " + INVERSOR2_USUARIO + " está " + rojo + "bloqueado." + colorNormal);
                             } else if (contrasena.equals(INVERSOR2_CONTRASENA)) {
-                                System.out.println("Bienvenido " + INVERSOR2_USUARIO);
+                                System.out.println(verde +"Bienvenido " + INVERSOR2_USUARIO + colorNormal);
                                 inversor2 = true;
                                 contadorFallosInversor2 = 0;
                             } else {
-                                System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
+                                System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                                 contadorFallosInversor2++;
                                 if (contadorFallosInversor2 > 2) {
-                                    System.out.println("Usuario " + INVERSOR2_USUARIO + " bloqueado.");
+                                    System.out.println("Usuario " + INVERSOR2_USUARIO + rojo +"bloqueado." + colorNormal);
                                     bloquearInversor2 = true;
                                 }
                             }
@@ -110,107 +126,121 @@ public class Main {
                         // VALIDACIÓN DE ADMIN
                         if (usuario.equals(ADMIN_USUARIO)) {
                             if (contrasena.equals(ADMIN_CONTRASENA)) {
-                                System.out.println("Bienvenido " + ADMIN_USUARIO);
+                                System.out.println(verde +"Bienvenido " + ADMIN_USUARIO + colorNormal);
                                 admin = true;
                             } else {
-                                System.out.println("Contraseña incorrecta. Vuelva a intentarlo.");
+                                System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                             }
                         }
                         if (contadorTotal == 3 && !gestor && !inversor1 && !inversor2 && !admin) {
-                            System.out.println("Se han agotado los intentos permitidos. Inténtelo de nuevo.");
+                            System.out.println(amarillo + "Se han agotado los intentos permitidos. Inténtelo de nuevo." + colorNormal);
                             contadorTotal = 0;
                         }
                     } while (!gestor && !inversor1 && !inversor2 && !admin);
                     if (admin){
                         do {
-                            System.out.println("\n Menu Administrador ");
-                            System.out.println("1.Panel de control");
-                            System.out.println("2.Proyectos");
-                            System.out.println("3.Configuracion");
-                            System.out.println("4.Cerrar sesion");
+                            System.out.println(morado +"╭ ──────┉──────"+ amarillo +" • "+ morado +"──────┉────── ╮");
+                            System.out.println(verde +"  ┈ ⋞ 〈 "+ azul +"MENÚ ADMINISTRADOR"+ verde +" 〉 ⋟ ┈");
+                            System.out.println(morado +"╰ ──────┉──────"+ amarillo +" • "+ morado +"──────┉────── ╯"+ colorNormal);
+                            System.out.println(verde +"1." + cyan +"Panel de control");
+                            System.out.println(verde +"2." + cyan +"Proyectos");
+                            System.out.println(verde +"3." + cyan +"Configuración");
+                            System.out.println(verde +"4." + cyan +"Cerrar sesión" + colorNormal);
                             opcion2 = Integer.parseInt(s.nextLine());
                             switch (opcion2) {
                                 case 1: {
-                                    System.out.println("Has ingresado a: Panel de Control");
-                                    System.out.println("Opciones de bloquear/desbloquear al usuario");
+                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                    System.out.println(        "| "+ verde +"      Has ingresado"+ morado +"        |");
+                                    System.out.println(        "| "+ azul +"   al Panel de Control"+ morado +"     |");
+                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                    System.out.println("Opciones de " + rojo +"bloquear" + azul + "/" + verde +"desbloquear" + colorNormal +" al usuario:");
                                     do {
-                                        System.out.println("#### Bloquear/Desbloquear ####");
-                                        System.out.println("1. Usuario " + GESTOR_USUARIO);
-                                        System.out.println("2. Usuario " + INVERSOR1_USUARIO);
-                                        System.out.println("3. Usuario " + INVERSOR2_USUARIO);
-                                        System.out.println("4. Volver al menu Administrador");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ rojo +"   Bloquear" + azul + "/" + verde + "Desbloquear"+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1." + colorNormal +" Usuario " + GESTOR_USUARIO);
+                                        System.out.println(verde +"2." + colorNormal +" Usuario " + INVERSOR1_USUARIO);
+                                        System.out.println(verde +"3." + colorNormal +" Usuario " + INVERSOR2_USUARIO);
+                                        System.out.println(verde +"4." + colorNormal +" Volver al menu Administrador" + colorNormal);
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1 :
                                                 if (bloquearGestor){
-                                                    System.out.println(GESTOR_USUARIO + " desbloqueado.");
+                                                    System.out.println(GESTOR_USUARIO + verde + " desbloqueado." + colorNormal);
                                                     bloquearGestor=false;
                                                 }else{
-                                                    System.out.println(GESTOR_USUARIO + " bloqueado.");
+                                                    System.out.println(GESTOR_USUARIO + rojo + " bloqueado." + colorNormal);
                                                     bloquearGestor=true;
                                                 }
                                                 break;
                                             case 2:
                                                 if (bloquearInversor1){
-                                                    System.out.println(INVERSOR1_USUARIO + " desbloqueado.");
+                                                    System.out.println(INVERSOR1_USUARIO + verde + " desbloqueado." + colorNormal);
                                                     bloquearInversor1=false;
                                                 }else{
-                                                    System.out.println(INVERSOR1_USUARIO + " bloqueado.");
+                                                    System.out.println(INVERSOR1_USUARIO + rojo + " bloqueado." + colorNormal);
                                                     bloquearInversor1=true;
                                                 }
                                                 break;
                                             case 3:
                                                 if (bloquearInversor2){
-                                                    System.out.println(INVERSOR2_USUARIO + " desbloqueado.");
+                                                    System.out.println(INVERSOR2_USUARIO + verde + " desbloqueado." + colorNormal);
                                                     bloquearInversor2=false;
                                                 }else{
-                                                    System.out.println(INVERSOR2_USUARIO + " bloqueado.");
+                                                    System.out.println(INVERSOR2_USUARIO + rojo + " bloqueado." + colorNormal);
                                                     bloquearInversor2=true;
                                                 }
                                                 break;
                                             case 4:
                                                 break;
                                             default:
-                                                System.out.println("Esta opcion no existe");
+                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
                                         }
                                     }while (opcion != 4);
                                 }
                                 break;
                                 case 2: {
-                                    System.out.println("Has ingresado a: Proyectos");
                                     do {
-                                        System.out.println("1. Ver Proyectos");
-                                        System.out.println("2. Modificar Proyectos");
-                                        System.out.println("3. Eliminar Proyectos");
-                                        System.out.println("4. Vuelta al menu Administrador");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ verde +"    Proyectos"+ morado +"     |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1." + colorNormal + "Ver Proyectos");
+                                        System.out.println(verde +"2." + colorNormal + "Modificar Proyectos");
+                                        System.out.println(verde +"3." + colorNormal + "Eliminar Proyectos");
+                                        System.out.println(verde +"4." + colorNormal + "Volver al Menú Administrador");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
                                                 if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                                    System.out.println("Ningún proyecto ha sido creado aún.");
+                                                    System.out.println( amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                                 }else{
                                                     do {
-                                                        System.out.println("""
-                                                        ¿Qué proyecto quieres ver?
-                                                        1. Primer proyecto.
-                                                        2. Segundo proyecto.
-                                                        3. Tercer proyecto.
-                                                        4. Volver.""");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                        System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                                        System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                                        System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                                        System.out.println(verde +"4." + colorNormal + "Volver.");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún." + colorNormal);
                                                                 } else{
-                                                                    System.out.println("PROYECTO 01");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto01);
                                                                     System.out.println("Categoría: " + categoriaProyecto01);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 01");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                                         System.out.println("Descripción: " + descProyecto01);
                                                                         System.out.println("Categoría: " + categoriaProyecto01);
@@ -226,12 +256,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto01; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto01) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
@@ -240,22 +270,26 @@ public class Main {
                                                                         }
                                                                         System.out.print("]" + x + "%");
                                                                         System.out.println();
-                                                                    }else System.out.println("Opción inválida");
+                                                                    }else System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                                 }
                                                                 break;
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")) {
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún." + colorNormal);
                                                                 } else {
-                                                                    System.out.println("PROYECTO 02");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto02);
                                                                     System.out.println("Categoría: " + categoriaProyecto02);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 02");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                                         System.out.println("Descripción: " + descProyecto02);
                                                                         System.out.println("Categoría: " + categoriaProyecto02);
@@ -271,12 +305,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto02) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -286,23 +320,27 @@ public class Main {
                                                                         System.out.print("]" + x + "%");
                                                                         System.out.println();
                                                                     } else {
-                                                                        System.out.println("Opción inválida");
+                                                                        System.out.println(amarillo + "Opción inválida" + colorNormal);
                                                                     }
                                                                 }
                                                                 break;
                                                             case 3:
                                                                 if (nombreProyecto03.equals("")) {
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún." + colorNormal);
                                                                 } else {
-                                                                    System.out.println("PROYECTO 03");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto03);
                                                                     System.out.println("Categoría: " + categoriaProyecto03);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 03");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                                         System.out.println("Descripción: " + descProyecto03);
                                                                         System.out.println("Categoría: " + categoriaProyecto03);
@@ -318,12 +356,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto03) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -333,16 +371,15 @@ public class Main {
                                                                         System.out.print("]" + x + "%");
                                                                         System.out.println();
                                                                     } else {
-                                                                        System.out.println("Opción inválida");
+                                                                        System.out.println(amarillo + "Opción inválida" + colorNormal);
                                                                     }
                                                                 }
                                                                 break;
-
                                                             case 4:
                                                                 System.out.println("Saliendo...");
                                                                 break;
                                                             default:
-                                                                System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                                System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                                 break;
                                                         }
                                                     }while (opcion != 4);
@@ -350,34 +387,35 @@ public class Main {
                                                 break;
                                             case 2 :
                                                 if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                                    System.out.println("Ningún proyecto ha sido creado aún, dile al gesto que cree un proyecto para modificarlo.");
+                                                    System.out.println(amarillo +"Ningún proyecto ha sido creado aún, dile al gesto que cree un proyecto para modificarlo." + colorNormal);
                                                 }else{
                                                     do {
-                                                        System.out.println("""
-                                                      ¿Qué proyecto quieres cambiar?
-                                                      1. Primer proyecto.
-                                                      2. Segundo proyecto.
-                                                      3. Tercer proyecto.
-                                                      4. Volver.""");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres cambiar? "+ morado +"|");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                        System.out.println(verde +"1." + colorNormal +"Primer proyecto.");
+                                                        System.out.println(verde +"2." + colorNormal +"Segundo proyecto.");
+                                                        System.out.println(verde +"3." + colorNormal +"Tercer proyecto.");
+                                                        System.out.println(verde +"4." + colorNormal +"Volver.");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
                                                                     do {
-                                                                        System.out.println("""
-                                                                ¿Qué quieres cambiar?
-                                                                1. Nombre.
-                                                                2. Descripción.
-                                                                3. Categoría.
-                                                                4. Cantidad necesaria.
-                                                                5. Cantidad financiada.
-                                                                6. Fecha de Inicio de inversiones.
-                                                                7. Fecha de finalización de inversiones.
-                                                                8. Recompensas
-                                                                9. Volver.
-                                                                """);
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                        System.out.println(verde +"1." + colorNormal +"Nombre");
+                                                                        System.out.println(verde +"2." + colorNormal +"Descripción.");
+                                                                        System.out.println(verde +"3." + colorNormal +"Categoría.");
+                                                                        System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
+                                                                        System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
+                                                                        System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
+                                                                        System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
+                                                                        System.out.println(verde +"8." + colorNormal +"Recompensas.");
+                                                                        System.out.println(verde +"9." + colorNormal +"Volver.");
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
@@ -410,12 +448,13 @@ public class Main {
                                                                                 break;
                                                                             case 8:
                                                                                 do {
-                                                                                    System.out.println("""
-                                                                ¿Qué recompensa quieres cambiar?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
+                                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                                    System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                                    System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
+                                                                                    System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
+                                                                                    System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
+                                                                                    System.out.println(verde +"4." + colorNormal +"Volver.");
                                                                                     opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
@@ -440,6 +479,9 @@ public class Main {
                                                                                         case 4:
                                                                                             System.out.println("Saliendo...");
                                                                                             break;
+                                                                                        default:
+                                                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
+                                                                                            break;
                                                                                     }
                                                                                 }while(opcion != 4);
                                                                                 break;
@@ -451,21 +493,21 @@ public class Main {
                                                                 }
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
                                                                     do {
-                                                                        System.out.println("""
-                                                                ¿Qué quieres cambiar?
-                                                                1. Nombre.
-                                                                2. Descripción.
-                                                                3. Categoría.
-                                                                4. Cantidad necesaria.
-                                                                5. Cantidad financiada.
-                                                                6. Fecha de Inicio de inversiones.
-                                                                7. Fecha de finalización de inversiones.
-                                                                8. Recompensas
-                                                                9. Volver.
-                                                                """);
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                        System.out.println(verde +"1." + colorNormal +"Nombre");
+                                                                        System.out.println(verde +"2." + colorNormal +"Descripción.");
+                                                                        System.out.println(verde +"3." + colorNormal +"Categoría.");
+                                                                        System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
+                                                                        System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
+                                                                        System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
+                                                                        System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
+                                                                        System.out.println(verde +"8." + colorNormal +"Recompensas.");
+                                                                        System.out.println(verde +"9." + colorNormal +"Volver.");
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
@@ -498,12 +540,13 @@ public class Main {
                                                                                 break;
                                                                             case 8:
                                                                                 do {
-                                                                                    System.out.println("""
-                                                                                    ¿Qué recompensa quieres cambiar?
-                                                                                    1. Recompensa 1.
-                                                                                    2. Recompensa 2.
-                                                                                    3. Recompensa 3.
-                                                                                    4. Volver""");
+                                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                                    System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                                    System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
+                                                                                    System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
+                                                                                    System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
+                                                                                    System.out.println(verde +"4." + colorNormal +"Volver.");
                                                                                     opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
@@ -540,21 +583,21 @@ public class Main {
                                                                 break;
                                                             case 3:
                                                                 if (nombreProyecto03.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
                                                                     do {
-                                                                        System.out.println("""
-                                                                        ¿Qué quieres cambiar?
-                                                                        1. Nombre.
-                                                                        2. Descripción.
-                                                                        3. Categoría.
-                                                                        4. Cantidad necesaria.
-                                                                        5. Cantidad financiada.
-                                                                        6. Fecha de Inicio de inversiones.
-                                                                        7. Fecha de finalización de inversiones.
-                                                                        8. Recompensas
-                                                                        9. Volver.
-                                                                        """);
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                        System.out.println(verde +"1." + colorNormal +"Nombre");
+                                                                        System.out.println(verde +"2." + colorNormal +"Descripción.");
+                                                                        System.out.println(verde +"3." + colorNormal +"Categoría.");
+                                                                        System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
+                                                                        System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
+                                                                        System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
+                                                                        System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
+                                                                        System.out.println(verde +"8." + colorNormal +"Recompensas.");
+                                                                        System.out.println(verde +"9." + colorNormal +"Volver.");
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch (opcion) {
                                                                             case 1:
@@ -587,12 +630,13 @@ public class Main {
                                                                                 break;
                                                                             case 8:
                                                                                 do {
-                                                                                    System.out.println("""
-                                                                                    ¿Qué recompensa quieres cambiar?
-                                                                                    1. Recompensa 1.
-                                                                                    2. Recompensa 2.
-                                                                                    3. Recompensa 3.
-                                                                                    4. Volver""");
+                                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                                    System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                                    System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
+                                                                                    System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
+                                                                                    System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
+                                                                                    System.out.println(verde +"4." + colorNormal +"Volver.");
                                                                                     opcion = Integer.parseInt(s.nextLine());
                                                                                     switch(opcion){
                                                                                         case 1:
@@ -637,19 +681,20 @@ public class Main {
                                             case 3 :
                                                 if (!(nombreProyecto01.isEmpty() && nombreProyecto02.isEmpty() && nombreProyecto03.isEmpty())){
                                                     do {
-                                                        System.out.println("""
-                                                        ¿Qué proyecto quieres eliminar?
-                                                        1. Primer Proyecto.
-                                                        2. Segundo Proyecto.
-                                                        3. Tercero Proyecto.
-                                                        4. Volver.""");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres eliminar? "+ morado +"|");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                        System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                                        System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                                        System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                                        System.out.println(verde +"4." + colorNormal + "Volver.");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto01 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto01 + "? (s/n)");
                                                                     String eliminarProyecto1SiNo = s.nextLine();
                                                                     if (eliminarProyecto1SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto01 = "";
@@ -665,6 +710,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto01 = 0;
                                                                         preciorecompensa2Proyecto01 = 0;
                                                                         preciorecompensa3Proyecto01 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -673,9 +719,9 @@ public class Main {
                                                                 }
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto02 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto02 + "? (s/n)");
                                                                     String eliminarProyecto2SiNo = s.nextLine();
                                                                     if (eliminarProyecto2SiNo.equalsIgnoreCase("s")){
                                                                         nombreProyecto02 = "";
@@ -691,6 +737,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto02 = 0;
                                                                         preciorecompensa2Proyecto02 = 0;
                                                                         preciorecompensa3Proyecto02 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -700,9 +747,9 @@ public class Main {
                                                                 break;
                                                             case 3:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto03 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto03 + "? (s/n)");
                                                                     String eliminarProyecto3SiNo = s.nextLine();
                                                                     if (eliminarProyecto3SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto03 = "";
@@ -718,6 +765,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto03 = 0;
                                                                         preciorecompensa2Proyecto03 = 0;
                                                                         preciorecompensa3Proyecto03 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -728,52 +776,54 @@ public class Main {
                                                             case 4:
                                                                 break;
                                                             default:
-                                                                System.out.println("Opción inválida.");
+                                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                                 break;
                                                         }
                                                     }while (opcion != 4);
-                                                }else System.out.println("Aun no hay proyectos creados, cuando lo estén podrás eliminarlos.");
+                                                }else System.out.println(amarillo +"Aún no hay proyectos creados, cuando lo estén podrás eliminarlos."+ colorNormal);
                                                 break;
                                             case 4 :
-                                                System.out.println("Vuelta al menu Administrador ");
+                                                System.out.println("Saliendo...");
                                                 break;
                                             default:
-                                                System.out.println("Esta opcion no existe o no se ha encontrado el proyecto");
+                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
                                         }
                                     } while (opcion != 4);
                                 }
                                 break;
                                 case 3: {
-                                    System.out.println("Has ingresado a: Configuración");
                                     do {
-                                        System.out.println("1. Cambio de Usuario");
-                                        System.out.println("2. Cambio de Contraseña");
-                                        System.out.println("3. Vuelta al menu Administrador");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Configuración"+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1."+ colorNormal +" Cambio de Usuario.");
+                                        System.out.println(verde +"2."+ colorNormal +" Cambio de Contraseña.");
+                                        System.out.println(verde +"3."+ colorNormal +" Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(ADMIN_CONTRASENA)){
                                                     System.out.print("Nuevo usuario: ");
                                                     ADMIN_USUARIO=s.nextLine();
                                                 }
-                                                else System.out.println("La contrasena es incorrecta");
+                                                else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(ADMIN_CONTRASENA)){
-                                                    System.out.print("Nueva contrasena: ");
+                                                    System.out.print("Nueva contraseña: ");
                                                     ADMIN_CONTRASENA =s.nextLine();
                                                 }
-                                                else System.out.println("La contrasena es incorrecta");
+                                                else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 3:
-                                                System.out.println("Vuelta al menu Administrador");
+                                                System.out.println("Saliendo...");
                                                 break;
                                             default:
-                                                System.out.println("No existe esta opcion");
+                                                System.out.println(amarillo + "Opción Inválida." + colorNormal);
                                         }
                                     }while (opcion != 3) ;
                                 }
@@ -783,59 +833,61 @@ public class Main {
                                     break;
                                 }
                                 default:
-                                    System.out.println("Esa opcion no existe");
+                                    System.out.println(amarillo + "Opción Inválida." + colorNormal);
                             }
                         } while (opcion2 != 4);
                     } else if (gestor && !bloquearGestor) {
                         do{
-                            System.out.println(amarillo + "░************");
-                            System.out.println(morado + " MENÚ GESTOR");
-                            System.out.println(amarillo + "░************" + colorNormal);
-                            System.out.println("1. Mis proyectos.");
-                            System.out.println("2. Cambiar usuario/contrasena.");
-                            System.out.println("3. Cerrar sesión.");
+                            System.out.println(morado +"╭ ────┉────"+ amarillo +" • "+ morado +"────┉──── ╮");
+                            System.out.println(verde +" ┈ ⋞ 〈 "+ azul +"MENÚ GESTOR"+ verde +" 〉 ⋟ ┈");
+                            System.out.println(morado +"╰ ────┉────"+ amarillo +" • "+ morado +"────┉──── ╯"+ colorNormal);
+                            System.out.println(verde +"1."+ colorNormal +" Mis proyectos.");
+                            System.out.println(verde +"2."+ colorNormal +" Configuración.");
+                            System.out.println(verde +"3."+ colorNormal +" Cerrar sesión.");
                             menuGestor = Integer.parseInt(s.nextLine());
                             switch (menuGestor){
                                 case 1:
                                     do{
-                                        System.out.println(amarillo + "░************");
-                                        System.out.println(morado + "MIS PROYECTOS");
-                                        System.out.println(amarillo + "░************" + colorNormal);
-                                        System.out.println("""
-                                        1. Ver proyecto.
-                                        2. Crear proyecto.
-                                        3. Modificar proyecto.
-                                        4. Eliminar proyecto.
-                                        5. Volver al menú gestor.
-                                        """);
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ verde +"    Proyectos"+ morado +"     |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1." + colorNormal + "Ver Proyectos.");
+                                        System.out.println(verde +"2." + colorNormal + "Modificar Proyectos.");
+                                        System.out.println(verde +"3." + colorNormal + "Eliminar Proyectos.");
+                                        System.out.println(verde +"4." + colorNormal + "Volver al Menú Gestor.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch(opcion){
                                             case 1:
                                                 if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                                    System.out.println("Ningún proyecto ha sido creado aún.");
+                                                    System.out.println(amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                                 }else{
                                                     do {
-                                                        System.out.println("""
-                                                        ¿Qué proyecto quieres ver?
-                                                        1. Primer proyecto.
-                                                        2. Segundo proyecto.
-                                                        3. Tercer proyecto.
-                                                        4. Volver.""");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                        System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                                        System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                                        System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                                        System.out.println(verde +"4." + colorNormal + "Volver.");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch(opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else{
-                                                                    System.out.println("PROYECTO 01");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto01);
                                                                     System.out.println("Categoría: " + categoriaProyecto01);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 01");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                                         System.out.println("Descripción: " + descProyecto01);
                                                                         System.out.println("Categoría: " + categoriaProyecto01);
@@ -851,12 +903,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto01; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto01) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
@@ -870,17 +922,21 @@ public class Main {
                                                                 break;
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")) {
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("PROYECTO 02");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto02);
                                                                     System.out.println("Categoría: " + categoriaProyecto02);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 02");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                                         System.out.println("Descripción: " + descProyecto02);
                                                                         System.out.println("Categoría: " + categoriaProyecto02);
@@ -896,12 +952,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto02) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -917,17 +973,21 @@ public class Main {
                                                                 break;
                                                             case 3:
                                                                 if (nombreProyecto03.equals("")) {
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("PROYECTO 03");
+                                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                    System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                     System.out.println("Nombre: " + nombreProyecto03);
                                                                     System.out.println("Categoría: " + categoriaProyecto03);
                                                                     System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                                     System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                                    System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                                    System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                                     String InvertirODetallada = s.nextLine();
                                                                     if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                                        System.out.println("PROYECTO 03");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                                         System.out.println("Descripción: " + descProyecto03);
                                                                         System.out.println("Categoría: " + categoriaProyecto03);
@@ -943,12 +1003,12 @@ public class Main {
                                                                         System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                                         System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                                         System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                                "▓ : Parte financiada.\n" +
+                                                                                verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                                 "░ : Parte por financiar.");
                                                                         graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
                                                                         System.out.print("[");
                                                                         for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                            System.out.print("▓");
+                                                                            System.out.print(verde + "▓" + colorNormal);
                                                                         }
                                                                         if (0 != 100 - graficoBarrasProyecto03) {
                                                                             for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -958,7 +1018,7 @@ public class Main {
                                                                         System.out.print("]" + x + "%");
                                                                         System.out.println();
                                                                     } else {
-                                                                        System.out.println("Opción inválida");
+                                                                        System.out.println(amarillo + "Opción inválida" + colorNormal);
                                                                     }
                                                                 }
                                                                 break;
@@ -966,7 +1026,7 @@ public class Main {
                                                                 System.out.println("Saliendo...");
                                                                 break;
                                                             default:
-                                                                System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                                System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                                 break;
                                                         }
                                                     }while (opcion != 4);
@@ -974,19 +1034,20 @@ public class Main {
                                                 break;
                                             case 2:
                                                 do {
-                                                    System.out.println("""
-                                                      ¿Qué proyecto quieres crear?
-                                                      1. Primer proyecto.
-                                                      2. Segundo proyecto.
-                                                      3. Tercer proyecto.
-                                                      4. Volver.""");
+                                                    System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                    System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres cambiar? "+ morado +"|");
+                                                    System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                    System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                                    System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                                    System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                                    System.out.println(verde +"4." + colorNormal + "Volver.");
                                                     opcion = Integer.parseInt(s.nextLine());
                                                     switch(opcion){
                                                         case 1:
                                                             System.out.println("Nombre:");
                                                             nombreProyecto01 = s.nextLine();
                                                             if (nombreProyecto01.equals("")){
-                                                                System.out.println("Para crear un proyecto DEBES ponerle nombre.");
+                                                                System.out.println(amarillo + "Para crear un proyecto DEBES ponerle nombre." + colorNormal);
                                                                 break;
                                                             } else {
                                                                 System.out.println("Descripción:");
@@ -1003,12 +1064,13 @@ public class Main {
                                                                     System.out.println("Fecha de finalización de inversiones: ");
                                                                     fechaFinalProyecto01 = s.nextLine();
                                                                     do {
-                                                                        System.out.println("""
-                                                                        ¿Qué recompensa quieres crear?
-                                                                        1. Recompensa 1.
-                                                                        2. Recompensa 2.
-                                                                        3. Recompensa 3.
-                                                                        4. Volver""");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                                        System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
+                                                                        System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
+                                                                        System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
+                                                                        System.out.println(verde +"4." + colorNormal +"Volver.");
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
@@ -1032,10 +1094,13 @@ public class Main {
                                                                             case 4:
                                                                                 System.out.println("Saliendo...");
                                                                                 break;
+                                                                            default:
+                                                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
+                                                                                break;
                                                                         }
                                                                     }while(opcion != 4);
                                                                 } else {
-                                                                    System.out.println("La cantidad financiada debe ser menor o igual que la cantidad necesaria.");
+                                                                    System.out.println(amarillo + "La cantidad financiada debe ser menor o igual que la cantidad necesaria." + colorNormal);
                                                                     break;
                                                                 }
                                                             }
@@ -1044,7 +1109,7 @@ public class Main {
                                                             System.out.println("Nombre:");
                                                             nombreProyecto02 = s.nextLine();
                                                             if (nombreProyecto02.equals("")){
-                                                                System.out.println("Para crear un proyecto DEBES ponerle nombre.");
+                                                                System.out.println(amarillo + "Para crear un proyecto DEBES ponerle nombre." + colorNormal);
                                                                 break;
                                                             } else {
                                                                 System.out.println("Descripción:");
@@ -1061,12 +1126,9 @@ public class Main {
                                                                     System.out.println("Fecha de finalización de inversiones: ");
                                                                     fechaFinalProyecto02 = s.nextLine();
                                                                     do {
-                                                                        System.out.println("""
-                                                                        ¿Qué recompensa quieres crear?
-                                                                        1. Recompensa 1.
-                                                                        2. Recompensa 2.
-                                                                        3. Recompensa 3.
-                                                                        4. Volver""");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
@@ -1093,7 +1155,7 @@ public class Main {
                                                                         }
                                                                     }while(opcion != 4);
                                                                 } else {
-                                                                    System.out.println("La cantidad financiada debe ser menor o igual que la cantidad necesaria.");
+                                                                    System.out.println(amarillo + "La cantidad financiada debe ser menor o igual que la cantidad necesaria." + colorNormal);
                                                                     break;
                                                                 }
                                                             }
@@ -1102,7 +1164,7 @@ public class Main {
                                                             System.out.println("Nombre:");
                                                             nombreProyecto03 = s.nextLine();
                                                             if (nombreProyecto03.equals("")){
-                                                                System.out.println("Para crear un proyecto DEBES ponerle nombre.");
+                                                                System.out.println(amarillo + "Para crear un proyecto DEBES ponerle nombre." + colorNormal);
                                                                 break;
                                                             } else {
                                                                 System.out.println("Descripción:");
@@ -1119,12 +1181,9 @@ public class Main {
                                                                     System.out.println("Fecha de finalización de inversiones: ");
                                                                     fechaFinalProyecto03 = s.nextLine();
                                                                     do {
-                                                                        System.out.println("""
-                                                                ¿Qué recompensa quieres crear?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
+                                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                                        System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+                                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                                         opcion = Integer.parseInt(s.nextLine());
                                                                         switch(opcion){
                                                                             case 1:
@@ -1151,7 +1210,7 @@ public class Main {
                                                                         }
                                                                     }while(opcion != 4);
                                                                 } else {
-                                                                    System.out.println("La cantidad financiada debe ser menor o igual que la cantidad necesaria.");
+                                                                    System.out.println(amarillo + "La cantidad financiada debe ser menor o igual que la cantidad necesaria." + colorNormal);
                                                                     break;
                                                                 }
                                                             }
@@ -1165,308 +1224,22 @@ public class Main {
                                                 }while (opcion != 4);
                                                 break;
                                             case 3:
-                                                if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                                    System.out.println("Ningún proyecto ha sido creado aún, crea un proyecto para modificarlo.");
-                                                }else{
-                                                    do {
-                                                        System.out.println("""
-                                                      ¿Qué proyecto quieres cambiar?
-                                                      1. Primer proyecto.
-                                                      2. Segundo proyecto.
-                                                      3. Tercer proyecto.
-                                                      4. Volver.""");
-                                                        opcion = Integer.parseInt(s.nextLine());
-                                                        switch(opcion){
-                                                            case 1:
-                                                                if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
-                                                                } else {
-                                                                    do {
-                                                                        System.out.println("""
-                                                                ¿Qué quieres cambiar?
-                                                                1. Nombre.
-                                                                2. Descripción.
-                                                                3. Categoría.
-                                                                4. Cantidad necesaria.
-                                                                5. Cantidad financiada.
-                                                                6. Fecha de Inicio de inversiones.
-                                                                7. Fecha de finalización de inversiones.
-                                                                8. Recompensas
-                                                                9. Volver.
-                                                                """);
-                                                                        opcion = Integer.parseInt(s.nextLine());
-                                                                        switch (opcion) {
-                                                                            case 1:
-                                                                                System.out.println("Nombre:");
-                                                                                nombreProyecto01 = s.nextLine();
-                                                                                break;
-                                                                            case 2:
-                                                                                System.out.println("Descripción:");
-                                                                                descProyecto01 = s.nextLine();
-                                                                                break;
-                                                                            case 3:
-                                                                                System.out.println("Categoría:");
-                                                                                categoriaProyecto01 = s.nextLine();
-                                                                                break;
-                                                                            case 4:
-                                                                                System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto01 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 5:
-                                                                                System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto01 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 6:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaInicioProyecto01 = s.nextLine();
-                                                                                break;
-                                                                            case 7:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaFinalProyecto01 = s.nextLine();
-                                                                                break;
-                                                                            case 8:
-                                                                                do {
-                                                                                    System.out.println("""
-                                                                                    ¿Qué recompensa quieres cambiar?
-                                                                                    1. Recompensa 1.
-                                                                                    2. Recompensa 2.
-                                                                                    3. Recompensa 3.
-                                                                                    4. Volver""");
-                                                                                    opcion = Integer.parseInt(s.nextLine());
-                                                                                    switch(opcion){
-                                                                                        case 1:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            recompensa1Proyecto01 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 2:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            recompensa2Proyecto01 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            s.nextLine();
-                                                                                            break;
-                                                                                        case 3:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            recompensa3Proyecto01 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto01 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 4:
-                                                                                            System.out.println("Saliendo...");
-                                                                                            break;
-                                                                                    }
-                                                                                }while(opcion != 4);
-                                                                                break;
-                                                                            case 9:
-                                                                                System.out.println("Saliendo...");
-                                                                                break;
-                                                                        }
-                                                                    } while (opcion != 9);
-                                                                }
-                                                            case 2:
-                                                                if (nombreProyecto02.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
-                                                                } else {
-                                                                    do {
-                                                                        System.out.println("""
-                                                                        ¿Qué quieres cambiar?
-                                                                        1. Nombre.
-                                                                        2. Descripción.
-                                                                        3. Categoría.
-                                                                        4. Cantidad necesaria.
-                                                                        5. Cantidad financiada.
-                                                                        6. Fecha de Inicio de inversiones.
-                                                                        7. Fecha de finalización de inversiones.
-                                                                        8. Recompensas
-                                                                        9. Volver.
-                                                                        """);
-                                                                        opcion = Integer.parseInt(s.nextLine());
-                                                                        switch (opcion) {
-                                                                            case 1:
-                                                                                System.out.println("Nombre:");
-                                                                                nombreProyecto02 = s.nextLine();
-                                                                                break;
-                                                                            case 2:
-                                                                                System.out.println("Descripción:");
-                                                                                descProyecto02 = s.nextLine();
-                                                                                break;
-                                                                            case 3:
-                                                                                System.out.println("Categoría:");
-                                                                                categoriaProyecto02 = s.nextLine();
-                                                                                break;
-                                                                            case 4:
-                                                                                System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto02 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 5:
-                                                                                System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto02 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 6:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaInicioProyecto02 = s.nextLine();
-                                                                                break;
-                                                                            case 7:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaFinalProyecto02 = s.nextLine();
-                                                                                break;
-                                                                            case 8:
-                                                                                do {
-                                                                                    System.out.println("""
-                                                                ¿Qué recompensa quieres cambiar?
-                                                                1. Recompensa 1.
-                                                                2. Recompensa 2.
-                                                                3. Recompensa 3.
-                                                                4. Volver""");
-                                                                                    opcion = Integer.parseInt(s.nextLine());
-                                                                                    switch(opcion){
-                                                                                        case 1:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            recompensa1Proyecto02 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 2:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            recompensa2Proyecto02 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 3:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            recompensa3Proyecto02 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto02 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 4:
-                                                                                            System.out.println("Saliendo...");
-                                                                                            break;
-                                                                                    }
-
-                                                                                }while(opcion != 4);
-                                                                                break;
-                                                                            case 9:
-                                                                                System.out.println("Saliendo...");
-                                                                                break;
-                                                                        }
-                                                                    } while (opcion != 9);
-                                                                }
-                                                                break;
-                                                            case 3:
-                                                                if (nombreProyecto03.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
-                                                                } else {
-                                                                    do {
-                                                                        System.out.println("""
-                                                                ¿Qué quieres cambiar?
-                                                                1. Nombre.
-                                                                2. Descripción.
-                                                                3. Categoría.
-                                                                4. Cantidad necesaria.
-                                                                5. Cantidad financiada.
-                                                                6. Fecha de Inicio de inversiones.
-                                                                7. Fecha de finalización de inversiones.
-                                                                8. Recompensas
-                                                                9. Volver.
-                                                                """);
-                                                                        opcion = Integer.parseInt(s.nextLine());
-                                                                        switch (opcion) {
-                                                                            case 1:
-                                                                                System.out.println("Nombre:");
-                                                                                nombreProyecto03 = s.nextLine();
-                                                                                break;
-                                                                            case 2:
-                                                                                System.out.println("Descripción:");
-                                                                                descProyecto03 = s.nextLine();
-                                                                                break;
-                                                                            case 3:
-                                                                                System.out.println("Categoría:");
-                                                                                categoriaProyecto03 = s.nextLine();
-                                                                                break;
-                                                                            case 4:
-                                                                                System.out.println("Cantidad Necesaria:");
-                                                                                cantNecesariaProyecto03 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 5:
-                                                                                System.out.println("Cantidad Financiada:");
-                                                                                cantFinanciadaProyecto03 = Integer.parseInt(s.nextLine());
-                                                                                break;
-                                                                            case 6:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaInicioProyecto03 = s.nextLine();
-                                                                                break;
-                                                                            case 7:
-                                                                                System.out.println("Fecha de Inicio de inversiones:");
-                                                                                fechaFinalProyecto03 = s.nextLine();
-                                                                                break;
-                                                                            case 8:
-                                                                                do {
-                                                                                    System.out.println("""
-                                                                                    ¿Qué recompensa quieres cambiar?
-                                                                                    1. Recompensa 1.
-                                                                                    2. Recompensa 2.
-                                                                                    3. Recompensa 3.
-                                                                                    4. Volver""");
-                                                                                    opcion = Integer.parseInt(s.nextLine());
-                                                                                    switch(opcion){
-                                                                                        case 1:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 1:");
-                                                                                            recompensa1Proyecto03 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 1:");
-                                                                                            preciorecompensa1Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 2:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 2:");
-                                                                                            recompensa2Proyecto03 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 2:");
-                                                                                            preciorecompensa2Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 3:
-                                                                                            System.out.println("Escriba la descripción de la recompensa 3:");
-                                                                                            recompensa3Proyecto03 = s.nextLine();
-                                                                                            System.out.println("Escriba el precio de la recompensa 3:");
-                                                                                            preciorecompensa3Proyecto03 = Integer.parseInt(s.nextLine());
-                                                                                            break;
-                                                                                        case 4:
-                                                                                            System.out.println("Saliendo...");
-                                                                                            break;
-                                                                                    }
-
-                                                                                }while(opcion != 4);
-                                                                                break;
-                                                                            case 9:
-                                                                                System.out.println("Saliendo...");
-                                                                                break;
-                                                                        }
-                                                                    } while (opcion != 9);
-                                                                    break;
-                                                                }
-                                                            case 4:
-                                                                System.out.println("Saliendo...");
-                                                                break;
-                                                        }
-                                                    }while (opcion != 4);
-                                                    break;
-                                                }
-                                                break;
-                                            case 4:
                                                 if (!(nombreProyecto01.isEmpty() && nombreProyecto02.isEmpty() && nombreProyecto03.isEmpty())){
                                                     do {
-                                                        System.out.println("""
-                                                        ¿Qué proyecto quieres eliminar?
-                                                        1. Primer Proyecto.
-                                                        2. Segundo Proyecto.
-                                                        3. Tercero Proyecto.
-                                                        4. Volver.""");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres eliminar? "+ morado +"|");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                                        System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                                        System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                                        System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                                        System.out.println(verde +"4." + colorNormal + "Volver.");
                                                         opcion = Integer.parseInt(s.nextLine());
                                                         switch (opcion){
                                                             case 1:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto01 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto01 + "? (s/n)");
                                                                     String eliminarProyecto1SiNo = s.nextLine();
                                                                     if (eliminarProyecto1SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto01 = "";
@@ -1482,6 +1255,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto01 = 0;
                                                                         preciorecompensa2Proyecto01 = 0;
                                                                         preciorecompensa3Proyecto01 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -1491,9 +1265,9 @@ public class Main {
                                                                 break;
                                                             case 2:
                                                                 if (nombreProyecto02.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto02 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto02 + "? (s/n)");
                                                                     String eliminarProyecto2SiNo = s.nextLine();
                                                                     if (eliminarProyecto2SiNo.equalsIgnoreCase("s")){
                                                                         nombreProyecto02 = "";
@@ -1509,6 +1283,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto02 = 0;
                                                                         preciorecompensa2Proyecto02 = 0;
                                                                         preciorecompensa3Proyecto02 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -1518,9 +1293,9 @@ public class Main {
                                                                 break;
                                                             case 3:
                                                                 if (nombreProyecto01.equals("")){
-                                                                    System.out.println("Este proyecto no ha sido creado aún.");
+                                                                    System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                 } else {
-                                                                    System.out.println("¿Quieres eliminar el proyecto" + nombreProyecto03 + "? (s/n)");
+                                                                    System.out.println("¿Quieres eliminar el proyecto " + nombreProyecto03 + "? (s/n)");
                                                                     String eliminarProyecto3SiNo = s.nextLine();
                                                                     if (eliminarProyecto3SiNo.equalsIgnoreCase("s")) {
                                                                         nombreProyecto03 = "";
@@ -1536,6 +1311,7 @@ public class Main {
                                                                         preciorecompensa1Proyecto03 = 0;
                                                                         preciorecompensa2Proyecto03 = 0;
                                                                         preciorecompensa3Proyecto03 = 0;
+                                                                        System.out.println(verde + "Proyecto eliminado satisfactoriamente." + colorNormal);
                                                                         break;
                                                                     } else {
                                                                         System.out.println("Saliendo...");
@@ -1546,29 +1322,29 @@ public class Main {
                                                             case 4:
                                                                 break;
                                                             default:
-                                                                System.out.println("Opción inválida.");
+                                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                                 break;
                                                         }
                                                     }while (opcion != 4);
                                                 }
                                                 break;
-                                            case 5:
+                                            case 4:
                                                 System.out.println("Saliendo...");
                                                 break;
                                             default:
-                                                System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                 break;
                                         }
                                     }while(opcion != 5);
                                     break;
                                 case 2:
                                     do {
-                                        System.out.println(amarillo + "░*************************");
-                                        System.out.println(morado + "CAMBIAR USUARIO Y CONTRASEÑA");
-                                        System.out.println(amarillo + "░*************************" + colorNormal);
-                                        System.out.println("1. Cambiar usuario.");
-                                        System.out.println("2. Cambiar contrasena.");
-                                        System.out.println("3. Volver al Menú Gestor.");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Configuración"+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1."+ colorNormal +" Cambio de Usuario.");
+                                        System.out.println(verde +"2."+ colorNormal +" Cambio de Contraseña.");
+                                        System.out.println(verde +"3."+ colorNormal +" Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
@@ -1577,21 +1353,21 @@ public class Main {
                                                 if (userAntiguo.equals(GESTOR_USUARIO)){
                                                     System.out.println("Inserte su nuevo usuario:");
                                                     GESTOR_USUARIO = s.nextLine();
-                                                    System.out.println("Su usuario ahora es " + GESTOR_USUARIO + ".");
+                                                    System.out.println(verde +"Su usuario ahora es " + GESTOR_USUARIO + "." + colorNormal);
                                                 }else {
-                                                    System.out.println("El usuario no es correcto, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "El usuario no es correcto, inténtelo de nuevo." + colorNormal);
                                                     break;
                                                 }
                                                 break;
                                             case 2:
-                                                System.out.println("Inserte su anterior contrasena:");
+                                                System.out.println("Inserte su anterior contraseña:");
                                                 String passwordUsuario = s.nextLine();
                                                 if (passwordUsuario.equals(GESTOR_CONTRASENA)){
-                                                    System.out.println("Inserte su nueva contrasena:");
+                                                    System.out.println("Inserte su nueva contraseña:");
                                                     GESTOR_CONTRASENA = s.nextLine();
-                                                    System.out.println("Su contrasena ha sido cambiada.");
+                                                    System.out.println(verde + "Su contraseña ha sido cambiada." + colorNormal);
                                                 }else {
-                                                    System.out.println("La contrasena no es correcta, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "La contraseña no es correcta, inténtelo de nuevo." + colorNormal);
                                                     break;
                                                 }
                                                 break;
@@ -1599,7 +1375,7 @@ public class Main {
                                                 System.out.println("Volviendo al Menú Gestor...");
                                                 break;
                                             default:
-                                                System.out.println("La opción insertada es inválida.");
+                                                System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                 break;
                                         }
                                     }while(opcion != 3);
@@ -1608,49 +1384,55 @@ public class Main {
                                     System.out.println("Cerrando sesión...");
                                     break;
                                 default:
-                                    System.out.println("La opción insertada es inválida.");
+                                    System.out.println(amarillo + "Opción inválida." + colorNormal);
                                     break;
                             }
                         }while(menuGestor != 3);
                     } else if (inversor1 && !bloquearInversor1) {
                         do {
-                            System.out.println("""
-                                    MENU INVERSOR1\s
-                                    1. Mis Inversiones.
-                                    2. Proyectos.
-                                    3. Cartera Digital.
-                                    4. Invitar amigos.
-                                    5. Configuración.
-                                    6. Salir.""");
+                            System.out.println(morado +"╭ ─────┉─────"+ amarillo +" • "+ morado +"─────┉───── ╮");
+                            System.out.println(verde +"  ┈ ⋞ 〈 "+ azul +"MENÚ INVERSOR1"+ verde +" 〉 ⋟ ┈");
+                            System.out.println(morado +"╰ ─────┉─────"+ amarillo +" • "+ morado +"─────┉───── ╯"+ colorNormal);
+                            System.out.println(verde + "1."+ colorNormal +"Mis Inversiones.");
+                            System.out.println(verde + "2."+ colorNormal +"Proyectos.");
+                            System.out.println(verde + "3."+ colorNormal +"Cartera digital.");
+                            System.out.println(verde + "4."+ colorNormal +"Invitar amigos.");
+                            System.out.println(verde + "5."+ colorNormal +"Configuración.");
+                            System.out.println(verde + "6."+ colorNormal +"Salir.");
                             opcion = Integer.parseInt(s.nextLine());
                             switch (opcion){
                                 case 1:
                                     if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                        System.out.println(amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                     }else{
                                         do {
-                                            System.out.println("""
-                                        ¿Qué proyecto quieres ver?
-                                        1. Primer proyecto.
-                                        2. Segundo proyecto.
-                                        3. Tercer proyecto.
-                                        4. Volver.""");
+                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                            System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                            System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                            System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                            System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                            System.out.println(verde +"4." + colorNormal + "Volver.");
                                             opcion = Integer.parseInt(s.nextLine());
                                             switch(opcion){
                                                 case 1:
                                                     if (nombreProyecto01.equals("")){
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else{
-                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                         System.out.println("Categoría: " + categoriaProyecto01);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy01);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")){
-                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto01);
                                                             System.out.println("Descripción: " + descProyecto01);
                                                             System.out.println("Categoría: " + categoriaProyecto01);
@@ -1666,12 +1448,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                             System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto01; x++){
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto01){
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
@@ -1696,24 +1478,28 @@ public class Main {
                                                                 cantidadInvertidaInversor1Proy01 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 2:
                                                     if (nombreProyecto02.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                         System.out.println("Categoría: " + categoriaProyecto02);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy02);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto02);
                                                             System.out.println("Descripción: " + descProyecto02);
                                                             System.out.println("Categoría: " + categoriaProyecto02);
@@ -1729,12 +1515,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto02) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -1759,24 +1545,28 @@ public class Main {
                                                                 cantidadInvertidaInversor1Proy02 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 3:
                                                     if (nombreProyecto03.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                         System.out.println("Categoría: " + categoriaProyecto03);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor1Proy03);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto03);
                                                             System.out.println("Descripción: " + descProyecto03);
                                                             System.out.println("Categoría: " + categoriaProyecto03);
@@ -1792,12 +1582,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto03) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -1822,7 +1612,7 @@ public class Main {
                                                                 cantidadInvertidaInversor1Proy03 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
@@ -1830,7 +1620,7 @@ public class Main {
                                                     System.out.println("Saliendo...");
                                                     break;
                                                 default:
-                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                     break;
                                             }
                                         }while (opcion != 4);
@@ -1838,30 +1628,35 @@ public class Main {
                                     break;
                                 case 2:
                                     if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                        System.out.println(amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                     }else{
                                         do {
-                                            System.out.println("""
-                                        ¿Qué proyecto quieres ver?
-                                        1. Primer proyecto.
-                                        2. Segundo proyecto.
-                                        3. Tercer proyecto.
-                                        4. Volver.""");
+                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                            System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                            System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                            System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                            System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                            System.out.println(verde +"4." + colorNormal + "Volver.");
                                             opcion = Integer.parseInt(s.nextLine());
                                             switch(opcion){
                                                 case 1:
                                                     if (nombreProyecto01.equals("")){
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else{
-                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                         System.out.println("Categoría: " + categoriaProyecto01);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")){
-                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto01);
                                                             System.out.println("Descripción: " + descProyecto01);
                                                             System.out.println("Categoría: " + categoriaProyecto01);
@@ -1877,12 +1672,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                             System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto01; x++){
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto01){
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
@@ -1892,23 +1687,27 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 2:
                                                     if (nombreProyecto02.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                         System.out.println("Categoría: " + categoriaProyecto02);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto02);
                                                             System.out.println("Descripción: " + descProyecto02);
                                                             System.out.println("Categoría: " + categoriaProyecto02);
@@ -1924,12 +1723,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto02) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -1939,23 +1738,27 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 3:
                                                     if (nombreProyecto03.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                         System.out.println("Categoría: " + categoriaProyecto03);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto03);
                                                             System.out.println("Descripción: " + descProyecto03);
                                                             System.out.println("Categoría: " + categoriaProyecto03);
@@ -1971,12 +1774,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto03) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -1986,7 +1789,7 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
@@ -1994,7 +1797,7 @@ public class Main {
                                                     System.out.println("Saliendo...");
                                                     break;
                                                 default:
-                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                     break;
                                             }
                                         }while (opcion != 4);
@@ -2002,11 +1805,12 @@ public class Main {
                                     break;
                                 case 3:
                                     do {
-                                        System.out.println("""                                            
-                                                CARTERA DIGITAL
-                                                1. Mostrar saldo actual.
-                                                2. Añadir saldo.
-                                                3. Salir.""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Cartera Digital "+ morado +"   |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde + "1." + colorNormal + "Mostrar Saldo Actual.");
+                                        System.out.println(verde + "2." + colorNormal + "Añadir saldo.");
+                                        System.out.println(verde + "3." + colorNormal + "Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
@@ -2028,16 +1832,17 @@ public class Main {
                                     break;
                                 case 4:
                                     do {
-                                        System.out.println("""
-                                        INVITAR AMIGOS
-                                        1. Mostrar lista de amigos referidos.
-                                        2. Añadir un amigo.
-                                        3. Salir.""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"    Invitar Amigo "+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde+"1."+ colorNormal +"Mostrar lista de amigos referidos.");
+                                        System.out.println(verde+"2."+ colorNormal +"Añadir un amigo.");
+                                        System.out.println(verde+"3."+ colorNormal +"Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
                                                 if (amigosReferidos.isEmpty()) {
-                                                    System.out.println("Aún no has invitado a ningún amigo.");
+                                                    System.out.println(amarillo + "Aún no has invitado a ningún amigo." + colorNormal);
                                                 } else {
                                                     System.out.println("Amigos referidos: " + amigosReferidos);
                                                 }
@@ -2046,51 +1851,52 @@ public class Main {
                                                 System.out.print("Introduce el correo electrónico del amigo: ");
                                                 String nuevoAmigo = s.nextLine();
                                                 if (!nuevoAmigo.contains("@") || !nuevoAmigo.contains(".")) {
-                                                    System.out.println("El correo introducido no es válido.");
+                                                    System.out.println(amarillo + "El correo introducido no es válido." + colorNormal);
                                                 } else {
                                                     if (amigosReferidos.isEmpty()) {
                                                         amigosReferidos = nuevoAmigo;
                                                     } else {
                                                         amigosReferidos += ", " + nuevoAmigo;
                                                     }
-                                                    System.out.println("Amigo añadido correctamente.");
+                                                    System.out.println(cyan + "Amigo añadido correctamente." + colorNormal);
                                                 }
                                                 break;
                                             case 3:
                                                 System.out.println("Saliendo del menú Invitar Amigos.");
                                                 break;
                                             default:
-                                                System.out.println("Opción no válida, inténtalo de nuevo.");
+                                                System.out.println(amarillo + "Opción no válida, inténtalo de nuevo." + colorNormal);
                                                 break;
                                         }
                                     } while (opcion != 3);
                                     break;
                                 case 5:
                                     do {
-                                        System.out.println("""
-                                                CONFIGURACIÓN
-                                                1. Cambiar usuario.
-                                                2. Cambiar contrasena.
-                                                3. Salir""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Configuración"+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1."+ colorNormal +" Cambio de Usuario");
+                                        System.out.println(verde +"2."+ colorNormal +" Cambio de Contraseña");
+                                        System.out.println(verde +"3."+ colorNormal +" Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion){
                                             case 1:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(INVERSOR1_CONTRASENA)){
                                                     System.out.print("Nuevo usuario: ");
                                                     INVERSOR1_USUARIO=s.nextLine();
                                                 }
-                                                else System.out.println("La contrasena es incorrecta");
+                                                else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(INVERSOR1_CONTRASENA)){
-                                                    System.out.print("Nueva contrasena: ");
+                                                    System.out.print("Nueva contraseña: ");
                                                     INVERSOR1_CONTRASENA=s.nextLine();
                                                 }
-                                                else System.out.println("La contrasena es incorrecta");
+                                                else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 3:
                                                 break;
@@ -2104,43 +1910,49 @@ public class Main {
                         }while (opcion!=6);
                     } else if (inversor2 && !bloquearInversor2) {
                         do {
-                            System.out.println("""
-                                    MENU INVERSOR2\s
-                                    1. Mis Inversiones.
-                                    2. Proyectos.
-                                    3. Cartera Digital.
-                                    4. Invitar amigos.
-                                    5. Configuración.
-                                    6. Salir.""");
+                            System.out.println(morado +"╭ ─────┉─────"+ amarillo +" • "+ morado +"─────┉───── ╮");
+                            System.out.println(verde +"  ┈ ⋞ 〈 "+ azul +"MENÚ INVERSOR2"+ verde +" 〉 ⋟ ┈");
+                            System.out.println(morado +"╰ ─────┉─────"+ amarillo +" • "+ morado +"─────┉───── ╯"+ colorNormal);
+                            System.out.println(verde + "1."+ colorNormal +"Mis Inversiones.");
+                            System.out.println(verde + "2."+ colorNormal +"Proyectos.");
+                            System.out.println(verde + "3."+ colorNormal +"Cartera digital.");
+                            System.out.println(verde + "4."+ colorNormal +"Invitar amigos.");
+                            System.out.println(verde + "5."+ colorNormal +"Configuración.");
+                            System.out.println(verde + "6."+ colorNormal +"Salir.");
                             opcion = Integer.parseInt(s.nextLine());
                             switch (opcion) {
                                 case 1:
                                     if (nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")) {
-                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                        System.out.println(amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                     } else {
                                         do {
-                                            System.out.println("""
-                                            ¿Qué proyecto quieres ver?
-                                            1. Primer proyecto.
-                                            2. Segundo proyecto.
-                                            3. Tercer proyecto.
-                                            4. Volver.""");
+                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                            System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                            System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                            System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                            System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                            System.out.println(verde +"4." + colorNormal + "Volver.");
                                             opcion = Integer.parseInt(s.nextLine());
                                             switch(opcion) {
                                                 case 1:
                                                     if (nombreProyecto01.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                         System.out.println("Categoría: " + categoriaProyecto01);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy01);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto01);
                                                             System.out.println("Descripción: " + descProyecto01);
                                                             System.out.println("Categoría: " + categoriaProyecto01);
@@ -2156,12 +1968,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01 * 100) / cantNecesariaProyecto01);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto01; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto01) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto01; y++) {
@@ -2174,9 +1986,9 @@ public class Main {
                                                             System.out.print("Cantidad a invertir: ");
                                                             cantidadInvertir = Integer.parseInt(s.nextLine());
                                                             if (cantidadInvertir > carteraInversor2) {
-                                                                System.out.println("No tienes suficiente saldo en tu cartera");
+                                                                System.out.println(amarillo + "No tienes suficiente saldo en tu cartera" + colorNormal);
                                                             } else if (cantidadInvertir > (cantNecesariaProyecto01 - cantFinanciadaProyecto01)) {
-                                                                System.out.println("Cantidad Invertida mayor a la necesaria.");
+                                                                System.out.println(amarillo +"Cantidad Invertida mayor a la necesaria." + colorNormal);
                                                             } else if (cantidadInvertir <= 0) {
                                                                 System.out.println("Introduce una cantidad mayor a 0.");
                                                             } else {
@@ -2186,24 +1998,28 @@ public class Main {
                                                                 cantidadInvertidaInversor2Proy01 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 2:
                                                     if (nombreProyecto02.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                         System.out.println("Categoría: " + categoriaProyecto02);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy02);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto02);
                                                             System.out.println("Descripción: " + descProyecto02);
                                                             System.out.println("Categoría: " + categoriaProyecto02);
@@ -2219,12 +2035,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02 * 100) / cantNecesariaProyecto02);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto02) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -2249,24 +2065,28 @@ public class Main {
                                                                 cantidadInvertidaInversor2Proy02 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 3:
                                                     if (nombreProyecto03.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                         System.out.println("Categoría: " + categoriaProyecto03);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
                                                         System.out.println("Cantidad Invertida: " + cantidadInvertidaInversor2Proy03);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X], para invertir, inserte [Y]");
+                                                        System.out.println(cyan + "Para ver el proyecto detallado, inserte "+ rojo +"[X]"+ cyan + ", para invertir, inserte "+ amarillo +"[Y]" + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto03);
                                                             System.out.println("Descripción: " + descProyecto03);
                                                             System.out.println("Categoría: " + categoriaProyecto03);
@@ -2282,12 +2102,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03 * 100) / cantNecesariaProyecto03);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto03) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -2312,7 +2132,7 @@ public class Main {
                                                                 cantidadInvertidaInversor2Proy03 += cantidadInvertir;
                                                             }
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
@@ -2320,37 +2140,42 @@ public class Main {
                                                     System.out.println("Saliendo...");
                                                     break;
                                                 default:
-                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                     break;
                                             }
                                         } while (opcion != 4);
                                     }
                                 case 2:
                                     if(nombreProyecto01.equals("") && nombreProyecto02.equals("") && nombreProyecto03.equals("")){
-                                        System.out.println("Ningún proyecto ha sido creado aún.");
+                                        System.out.println(amarillo + "Ningún proyecto ha sido creado aún." + colorNormal);
                                     }else{
                                         do {
-                                            System.out.println("""
-                                        ¿Qué proyecto quieres ver?
-                                        1. Primer proyecto.
-                                        2. Segundo proyecto.
-                                        3. Tercer proyecto.
-                                        4. Volver.""");
+                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                            System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres ver? "+ morado +" |");
+                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                            System.out.println(verde +"1." + colorNormal + "Primer proyecto.");
+                                            System.out.println(verde +"2." + colorNormal + "Segundo proyecto.");
+                                            System.out.println(verde +"3." + colorNormal + "Tercer proyecto.");
+                                            System.out.println(verde +"4." + colorNormal + "Volver.");
                                             opcion = Integer.parseInt(s.nextLine());
                                             switch(opcion){
                                                 case 1:
                                                     if (nombreProyecto01.equals("")){
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else{
-                                                        System.out.println("PROYECTO 01");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto01);
                                                         System.out.println("Categoría: " + categoriaProyecto01);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto01);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto01);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")){
-                                                            System.out.println("PROYECTO 01");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 01 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto01);
                                                             System.out.println("Descripción: " + descProyecto01);
                                                             System.out.println("Categoría: " + categoriaProyecto01);
@@ -2366,12 +2191,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto01);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto01 + "€");
                                                             System.out.println("Gráfico de barras de cantidad finaciada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto01 = (int) ((cantFinanciadaProyecto01*100)/cantNecesariaProyecto01);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto01; x++){
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto01){
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto01; y++){
@@ -2381,23 +2206,27 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 2:
                                                     if (nombreProyecto02.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 02");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto02);
                                                         System.out.println("Categoría: " + categoriaProyecto02);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto02);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto02);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X]");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 02");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 02 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto02);
                                                             System.out.println("Descripción: " + descProyecto02);
                                                             System.out.println("Categoría: " + categoriaProyecto02);
@@ -2413,12 +2242,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto02);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto02 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto02 = (int) ((cantFinanciadaProyecto02*100)/cantNecesariaProyecto02);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto02; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto02) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto02; y++) {
@@ -2428,23 +2257,27 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
                                                 case 3:
                                                     if (nombreProyecto03.equals("")) {
-                                                        System.out.println("Este proyecto no ha sido creado aún.");
+                                                        System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                     } else {
-                                                        System.out.println("PROYECTO 03");
+                                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                        System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                         System.out.println("Nombre: " + nombreProyecto03);
                                                         System.out.println("Categoría: " + categoriaProyecto03);
                                                         System.out.println("Cantidad Necesaria: " + cantNecesariaProyecto03);
                                                         System.out.println("Cantidad Financiada: " + cantFinanciadaProyecto03);
-                                                        System.out.println("Para ver el proyecto detallado, inserte [X].");
+                                                        System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
                                                         String InvertirODetallada = s.nextLine();
                                                         if (InvertirODetallada.equalsIgnoreCase("x")) {
-                                                            System.out.println("PROYECTO 03");
+                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
+                                                            System.out.println(        "| "+ amarillo +"  PROYECTO 03 "+ morado +"  |");
+                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
                                                             System.out.println("Nombre: " + nombreProyecto03);
                                                             System.out.println("Descripción: " + descProyecto03);
                                                             System.out.println("Categoría: " + categoriaProyecto03);
@@ -2460,12 +2293,12 @@ public class Main {
                                                             System.out.println("Recompensa 3: " + recompensa3Proyecto03);
                                                             System.out.println("Precio: " + preciorecompensa3Proyecto03 + "€");
                                                             System.out.println("Gráfico de barras de cantidad financiada: \n" +
-                                                                    "▓ : Parte financiada.\n" +
+                                                                    verde +"▓ "+colorNormal+": Parte financiada.\n" +
                                                                     "░ : Parte por financiar.");
                                                             graficoBarrasProyecto03 = (int) ((cantFinanciadaProyecto03*100)/cantNecesariaProyecto03);
                                                             System.out.print("[");
                                                             for (x = 0; x != graficoBarrasProyecto03; x++) {
-                                                                System.out.print("▓");
+                                                                System.out.print(verde + "▓" + colorNormal);
                                                             }
                                                             if (0 != 100 - graficoBarrasProyecto03) {
                                                                 for (y = 0; y != 100 - graficoBarrasProyecto03; y++) {
@@ -2475,7 +2308,7 @@ public class Main {
                                                             System.out.print("]" + x + "%");
                                                             System.out.println();
                                                         } else {
-                                                            System.out.println("Opción inválida.");
+                                                            System.out.println(amarillo + "Opción inválida." + colorNormal);
                                                         }
                                                     }
                                                     break;
@@ -2483,7 +2316,7 @@ public class Main {
                                                     System.out.println("Saliendo...");
                                                     break;
                                                 default:
-                                                    System.out.println("Opción inválida, inténtelo de nuevo.");
+                                                    System.out.println(amarillo + "Opción inválida, inténtelo de nuevo." + colorNormal);
                                                     break;
                                             }
                                         }while (opcion != 4);
@@ -2491,11 +2324,12 @@ public class Main {
                                     break;
                                 case 3:
                                     do {
-                                        System.out.println("""
-                                                CARTERA DIGITAL
-                                                1. Mostrar saldo actual.
-                                                2. Añadir saldo.
-                                                3. Salir.""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Cartera Digital "+ morado +"   |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde + "1." + colorNormal + "Mostrar Saldo Actual.");
+                                        System.out.println(verde + "2." + colorNormal + "Añadir saldo.");
+                                        System.out.println(verde + "3." + colorNormal + "Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
@@ -2518,16 +2352,17 @@ public class Main {
                                     break;
                                 case 4:
                                     do {
-                                        System.out.println("""
-                                            INVITAR AMIGOS
-                                            1. Mostrar lista de amigos referidos.
-                                            2. Añadir un amigo.
-                                            3. Salir.""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"    Invitar Amigo "+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde+"1."+ colorNormal +"Mostrar lista de amigos referidos.");
+                                        System.out.println(verde+"2."+ colorNormal +"Añadir un amigo.");
+                                        System.out.println(verde+"3."+ colorNormal +"Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
                                                 if (amigosReferidos.isEmpty()) {
-                                                    System.out.println("Aún no has invitado a ningún amigo.");
+                                                    System.out.println(amarillo + "Aún no has invitado a ningún amigo." + colorNormal);
                                                 } else {
                                                     System.out.println("Amigos referidos: " + amigosReferidos);
                                                 }
@@ -2536,49 +2371,50 @@ public class Main {
                                                 System.out.print("Introduce el correo electrónico del amigo: ");
                                                 String nuevoAmigo = s.nextLine();
                                                 if (!nuevoAmigo.contains("@") || !nuevoAmigo.contains(".")) {
-                                                    System.out.println("El correo introducido no es válido.");
+                                                    System.out.println(amarillo + "El correo introducido no es válido." + colorNormal);
                                                 } else {
                                                     if (amigosReferidos.isEmpty()) {
                                                         amigosReferidos = nuevoAmigo;
                                                     } else {
                                                         amigosReferidos += ", " + nuevoAmigo;
                                                     }
-                                                    System.out.println("Amigo añadido correctamente.");
+                                                    System.out.println(cyan + "Amigo añadido correctamente." + colorNormal);
                                                 }
                                                 break;
                                             case 3:
                                                 System.out.println("Saliendo del menú Invitar Amigos.");
                                                 break;
                                             default:
-                                                System.out.println("Opción no válida, inténtalo de nuevo.");
+                                                System.out.println(amarillo + "Opción no válida, inténtalo de nuevo." + colorNormal);
                                                 break;
                                         }
                                     } while (opcion != 3);
                                     break;
                                 case 5:
                                     do {
-                                        System.out.println("""
-                                                CONFIGURACIÓN
-                                                1. Cambiar usuario.
-                                                2. Cambiar contrasena.
-                                                3. Salir""");
+                                        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━┓");
+                                        System.out.println(        "| "+ amarillo +"   Configuración"+ morado +"    |");
+                                        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+                                        System.out.println(verde +"1."+ colorNormal +" Cambio de Usuario.");
+                                        System.out.println(verde +"2."+ colorNormal +" Cambio de Contraseña.");
+                                        System.out.println(verde +"3."+ colorNormal +" Salir.");
                                         opcion = Integer.parseInt(s.nextLine());
                                         switch (opcion) {
                                             case 1:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(INVERSOR2_CONTRASENA)){
                                                     System.out.print("Nuevo usuario: ");
                                                     INVERSOR2_USUARIO = s.nextLine();
-                                                } else System.out.println("La contrasena es incorrecta");
+                                                } else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 2:
-                                                System.out.print("Escribe la contrasena: ");
+                                                System.out.print("Escribe la contraseña: ");
                                                 contrasena = s.nextLine();
                                                 if (contrasena.equals(INVERSOR2_CONTRASENA)) {
-                                                    System.out.print("Nueva contrasena: ");
+                                                    System.out.print("Nueva contraseña: ");
                                                     INVERSOR2_CONTRASENA = s.nextLine();
-                                                } else System.out.println("La contrasena es incorrecta");
+                                                } else System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
                                                 break;
                                             case 3:
                                                 break;
