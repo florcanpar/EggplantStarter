@@ -1,31 +1,36 @@
 package biblioteca;
-
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class Funciones {
 
-    public static void menuInicioSesion(){
-        String morado= "\033[35m", colorNormal = "\u001B[0m";
+    public static void menuInicioSesion() {
+        String morado = "\033[35m", colorNormal = "\u001B[0m";
         System.out.println(morado + """
-                    ⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠀⠀⠀⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠀⠀⠀⢿⡄⠀⢀⣦⠀⠀⠀⠀⠀⠀⠀⠀BIENVENIDO⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠀⠀⢰⣾⣷⣴⣾⣿⣴⣿⠏⠀⠀⠀⠀⠀⠀⠀ A⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠈⢻⣿⣿⣿⡿⠿⢿⡟⢿⣆⠀⠀⠀⠀ EGGPLANT⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠀⠺⡿⠻⠟⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀STARTER⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                    ⠀⠀⠰⡇⠀⠀⠀⠀⠀⠀⠀⠈⠻⣦⣄⣀⣀⣀⣠⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀
-                    ⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⢉⣽⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀
-                    ⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀
-                    ⠀⠀⠀⠀⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀
-                    ⠀⠀⠀⠀⠀⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀
-                    ⠀⠀⠀⠀⠀⠀⠙⢷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⡿⠛⣿⠇⠀
-                    ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⣠⣾⠋⠀⠀
-                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠳⠶⣦⣤⣄⣀⣀⣀⣀⣤⣤⡶⠾⠋⠁⠀⠀⠀
-                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀
-                    
-                    Seleccione una opción:\s
-                    1.- Iniciar sesión.
-                    2.- Salir.""" + colorNormal);
+                ⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⢿⡄⠀⢀⣦⠀⠀⠀⠀⠀⠀⠀⠀BIENVENIDO⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⢰⣾⣷⣴⣾⣿⣴⣿⠏⠀⠀⠀⠀⠀⠀⠀ A⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠈⢻⣿⣿⣿⡿⠿⢿⡟⢿⣆⠀⠀⠀⠀ EGGPLANT⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠺⡿⠻⠟⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀STARTER⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠰⡇⠀⠀⠀⠀⠀⠀⠀⠈⠻⣦⣄⣀⣀⣀⣠⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀
+                ⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⢉⣽⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀
+                ⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀
+                ⠀⠀⠀⠀⢻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀
+                ⠀⠀⠀⠀⠀⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀
+                ⠀⠀⠀⠀⠀⠀⠙⢷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⡿⠛⣿⠇⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⣠⣾⠋⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠳⠶⣦⣤⣄⣀⣀⣀⣀⣤⣤⡶⠾⠋⠁⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀
+                
+                Seleccione una opción:\s
+                1.- Iniciar sesión.
+                2.- Salir.""" + colorNormal);
     }
     /**
      * Muestra el menú principal para el inversor.
@@ -222,8 +227,17 @@ public class Funciones {
     public static boolean validarAdmin(String usuario, String contrasena, String ADMIN_USUARIO, String ADMIN_CONTRASENA, boolean admin, String verde, String colorNormal, String rojo) {
         if (usuario.equals(ADMIN_USUARIO)) {
             if (contrasena.equals(ADMIN_CONTRASENA)) {
-                System.out.println(verde + "Bienvenido " + ADMIN_USUARIO + colorNormal);
-                return true;
+                System.out.println("Se le ha enviado un código de verificación a su correo.");
+                String codigoGenerado = correoEnviar();
+                System.out.println("Inserte el código: ");
+                String codigoInsertaUsuario = leerString();
+                if (codigoInsertaUsuario.equals(codigoGenerado)){
+                    System.out.println(verde + "Bienvenido " + ADMIN_USUARIO + colorNormal);
+                    return true;
+                } else {
+                    System.out.println(rojo + "Código incorrecto." + colorNormal);
+                    return admin;
+                }
             } else {
                 System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                 return admin;
@@ -375,5 +389,66 @@ public class Funciones {
             System.out.println(amarillo + "La contraseña es incorrecta" + colorNormal);
             return contrasenaBuena;
         }
+    }
+
+    public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+        /**
+         * Código que nos facilita Eladio para enviar el correo desde java.
+         * @author: Flor Canillo
+         */
+        String remitente = "florcanillopardo@gmail.com";
+        String clave = "xulk rmhy kpaa kbom";
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.user", remitente);
+        props.put("mail.smtp.clave", clave);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getDefaultInstance(props);
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(remitente));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(destinatario));
+            message.setSubject(asunto);
+            message.setContent(cuerpo, "text/html; charset=utf-8");
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", remitente, clave);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        } catch (Exception me) {
+            me.printStackTrace();
+        }
+    }
+    public static String correoEnviar(){
+        /**
+         * Aquí especifico el destinatario, asunto y cuerpo del correo.
+         * Llamo a la función enviarConGMail para que se mande el correo.
+         * @param codigo en esta variable se almacena lo que hace la función Contrasenia.
+         * @param destinatario es el destinatario del correo, en este caso he utilizado mi correo personal.
+         * @param asunto es el asunto del correo.
+         * @param cuerpo es el cuerpo del correo.
+         * @return devuelve el código de verificación.
+         * @author: Flor Canillo
+         */
+        String codigo = Contrasenia();
+        String destinatario = "florcanillopardo@gmail.com"; // Destinatario del mensaje
+        String asunto = "[Eggplant Starter] Código de verificación.";
+        String cuerpo = "<h1>Este es el código</h1>" + codigo;
+        enviarConGMail(destinatario, asunto, cuerpo);
+        return codigo;
+    }
+    public static String Contrasenia(){
+        /**
+         * Aquí genero el un código aleatorio entre 1000 y 9999.
+         * @param codigoFinal paso el código a un string.
+         * @param codigoVerificacion genero el número aleatorio.
+         * @return devuelve el código de verificación pasado a string.
+         * @author: Flor Canillo
+         */
+        int codigoVerificacion = (int)(Math.random()*9000)+1000;
+        String codigoFinal = Integer.toString(codigoVerificacion);
+        return codigoFinal;
     }
 }

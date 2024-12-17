@@ -51,9 +51,22 @@ import java.util.Scanner;
                                     if (bloquearGestor) {
                                         System.out.println("El usuario " + GESTOR_USUARIO + " está " + rojo + "bloqueado." + colorNormal);
                                     } else if (contrasena.equals(GESTOR_CONTRASENA)) {
-                                        System.out.println(verde + "Bienvenido " + GESTOR_USUARIO + colorNormal);
-                                        gestor=true;
-                                        contadorFallosGestor=0;
+                                        System.out.println("Se le ha enviado un código de verificación a su correo.");
+                                        String codigoGenerado = correoEnviar();
+                                        System.out.println("Inserte el código: ");
+                                        String codigoInsertaUsuario = leerString();
+                                        if (codigoInsertaUsuario.equals(codigoGenerado)){
+                                            System.out.println(verde + "Bienvenido " + GESTOR_USUARIO + colorNormal);
+                                            gestor=true;
+                                            contadorFallosGestor=0;
+                                        } else {
+                                            System.out.println(rojo + "Código incorrecto." + colorNormal);
+                                            contadorFallosGestor++;
+                                            if (contadorFallosGestor > 2) {
+                                                System.out.println("Usuario " + GESTOR_USUARIO + rojo + " bloqueado." + colorNormal);
+                                                bloquearGestor = true;
+                                            }
+                                        }
                                     } else {
                                         System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                                         contadorFallosGestor++;
@@ -68,9 +81,22 @@ import java.util.Scanner;
                                     if (bloquearInversor1) {
                                         System.out.println("El usuario " + INVERSOR1_USUARIO + " está " + rojo +"bloqueado." + colorNormal);
                                     } else if (contrasena.equals(INVERSOR1_CONTRASENA)) {
-                                        System.out.println(verde +"Bienvenido " + INVERSOR1_USUARIO + colorNormal);
-                                        inversor1 = true;
-                                        contadorFallosInversor1 = 0;
+                                        System.out.println("Se le ha enviado un código de verificación a su correo.");
+                                        String codigoGenerado = correoEnviar();
+                                        System.out.println("Inserte el código: ");
+                                        String codigoInsertaUsuario = leerString();
+                                        if (codigoInsertaUsuario.equals(codigoGenerado)){
+                                            System.out.println(verde + "Bienvenido " + INVERSOR1_USUARIO + colorNormal);
+                                            inversor1=true;
+                                            contadorFallosInversor1=0;
+                                        } else {
+                                            System.out.println(rojo + "Código incorrecto." + colorNormal);
+                                            contadorFallosInversor1++;
+                                            if (contadorFallosInversor1 > 2) {
+                                                System.out.println("Usuario " + INVERSOR1_USUARIO + rojo +" bloqueado." + colorNormal);
+                                                bloquearInversor1 = true;
+                                            }
+                                        }
                                     } else {
                                         System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + ". Vuelva a intentarlo.");
                                         contadorFallosInversor1++;
@@ -85,9 +111,22 @@ import java.util.Scanner;
                                     if (bloquearInversor2) {
                                         System.out.println("El usuario " + INVERSOR2_USUARIO + " está " + rojo + "bloqueado." + colorNormal);
                                     } else if (contrasena.equals(INVERSOR2_CONTRASENA)) {
-                                        System.out.println(verde +"Bienvenido " + INVERSOR2_USUARIO + colorNormal);
-                                        inversor2 = true;
-                                        contadorFallosInversor2 = 0;
+                                        System.out.println("Se le ha enviado un código de verificación a su correo.");
+                                        String codigoGenerado = correoEnviar();
+                                        System.out.println("Inserte el código: ");
+                                        String codigoInsertaUsuario = leerString();
+                                        if (codigoInsertaUsuario.equals(codigoGenerado)){
+                                            System.out.println(verde + "Bienvenido " + INVERSOR2_USUARIO + colorNormal);
+                                            inversor2=true;
+                                            contadorFallosInversor2=0;
+                                        } else {
+                                            System.out.println(rojo + "Código incorrecto." + colorNormal);
+                                            contadorFallosInversor2++;
+                                            if (contadorFallosInversor2 > 2) {
+                                                System.out.println("Usuario " + INVERSOR2_USUARIO + rojo +" bloqueado." + colorNormal);
+                                                bloquearInversor2 = true;
+                                            }
+                                        }
                                     } else {
                                         System.out.println("Contraseña " + rojo + "incorrecta" + colorNormal + " Vuelva a intentarlo.");
                                         contadorFallosInversor2++;
