@@ -6,14 +6,13 @@ import java.util.Scanner;
             public static void main(String[] args) {
                 Scanner s = new Scanner(System.in);
                 String ADMIN_USUARIO = "admin", ADMIN_CONTRASENA = "adminpass", GESTOR_USUARIO = "gestor", GESTOR_CONTRASENA = "gestorpass",
-                        INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASENA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASENA = "inversor2pass", usuario, contrasena, amigosReferidos="", correoUsuarioDestinatario="";
+                        INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASENA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASENA = "inversor2pass", usuario, contrasena, amigosReferidos="", correoUsuarioDestinatario;
                 int contadorFallosGestor = 0, contadorFallosInversor1 = 0, contadorFallosInversor2 = 0;
                 boolean bloquearGestor = false, bloquearInversor1 = false, bloquearInversor2 = false, admin, gestor, inversor1, inversor2;
                 int carteraInversor1 = 0, carteraInversor2 = 0, dineroAnadido, cantidadInvertir, cantidadInvertidaInversor1Proy01 = 0, cantidadInvertidaInversor1Proy02 = 0, cantidadInvertidaInversor1Proy03 = 0,
                         cantidadInvertidaInversor2Proy01 = 0, cantidadInvertidaInversor2Proy02 = 0, cantidadInvertidaInversor2Proy03 = 0;
 
-                String  rojo = "\033[31m", verde = "\033[32m", amarillo = "\033[33m", azul = "\033[34m",
-                        morado = "\033[35m", cyan = "\033[36m", colorNormal = "\u001B[0m";
+                String  rojo = "\033[31m", verde = "\033[32m", amarillo = "\033[33m", azul = "\033[34m", morado = "\033[35m", cyan = "\033[36m", colorNormal = "\u001B[0m";
 
                 int menuGestor, opcion, opcion2;
 
@@ -256,13 +255,7 @@ import java.util.Scanner;
                                                             System.out.println(amarillo +"Ningún proyecto ha sido creado aún, dile al gesto que cree un proyecto para modificarlo." + colorNormal);
                                                         }else{
                                                             do {
-                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres cambiar? "+ morado +"|");
-                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                System.out.println(verde +"1." + colorNormal +"Primer proyecto.");
-                                                                System.out.println(verde +"2." + colorNormal +"Segundo proyecto.");
-                                                                System.out.println(verde +"3." + colorNormal +"Tercer proyecto.");
-                                                                System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                menuCambiarProyectos();
                                                                 opcion = leerInt();
                                                                 switch(opcion){
                                                                     case 1:
@@ -270,18 +263,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -314,13 +296,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:
@@ -362,18 +338,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -406,13 +371,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:
@@ -452,18 +411,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -496,13 +444,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:
@@ -899,13 +841,7 @@ import java.util.Scanner;
                                                             System.out.println(amarillo +"Ningún proyecto ha sido creado aún, dile al gesto que cree un proyecto para modificarlo." + colorNormal);
                                                         }else{
                                                             do {
-                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres cambiar? "+ morado +"|");
-                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                System.out.println(verde +"1." + colorNormal +"Primer proyecto.");
-                                                                System.out.println(verde +"2." + colorNormal +"Segundo proyecto.");
-                                                                System.out.println(verde +"3." + colorNormal +"Tercer proyecto.");
-                                                                System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                menuCambiarProyectos();
                                                                 opcion = leerInt();
                                                                 switch(opcion){
                                                                     case 1:
@@ -913,18 +849,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -957,13 +882,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:
@@ -1005,18 +924,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -1049,13 +957,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:
@@ -1095,18 +997,7 @@ import java.util.Scanner;
                                                                             System.out.println(amarillo + "Este proyecto no ha sido creado aún."+ colorNormal);
                                                                         } else {
                                                                             do {
-                                                                                System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
-                                                                                System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                System.out.println(verde +"1." + colorNormal +"Nombre");
-                                                                                System.out.println(verde +"2." + colorNormal +"Descripción.");
-                                                                                System.out.println(verde +"3." + colorNormal +"Categoría.");
-                                                                                System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-                                                                                System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-                                                                                System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-                                                                                System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-                                                                                System.out.println(verde +"8." + colorNormal +"Recompensas.");
-                                                                                System.out.println(verde +"9." + colorNormal +"Volver.");
+                                                                                menuCambiarProyectosCaracteristicas();
                                                                                 opcion = leerInt();
                                                                                 switch (opcion) {
                                                                                     case 1:
@@ -1139,13 +1030,7 @@ import java.util.Scanner;
                                                                                         break;
                                                                                     case 8:
                                                                                         do {
-                                                                                            System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                                                                                            System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
-                                                                                            System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-                                                                                            System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
-                                                                                            System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
-                                                                                            System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
-                                                                                            System.out.println(verde +"4." + colorNormal +"Volver.");
+                                                                                            menuCambiarRecompensa();
                                                                                             opcion = leerInt();
                                                                                             switch(opcion){
                                                                                                 case 1:

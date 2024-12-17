@@ -453,4 +453,41 @@ public class Funciones {
         String codigoFinal = Integer.toString(codigoVerificacion);
         return codigoFinal;
     }
+    public static void menuCambiarProyectos(){
+        String  verde = "\033[32m", amarillo = "\033[33m", morado = "\033[35m", colorNormal = "\u001B[0m";
+        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println(        "| "+ amarillo +"¿Qué proyecto quieres cambiar? "+ morado +"|");
+        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+        System.out.println(verde +"1." + colorNormal +"Primer proyecto.");
+        System.out.println(verde +"2." + colorNormal +"Segundo proyecto.");
+        System.out.println(verde +"3." + colorNormal +"Tercer proyecto.");
+        System.out.println(verde +"4." + colorNormal +"Volver.");
+    }
+    public static void menuCambiarProyectosCaracteristicas(){
+        String  verde = "\033[32m", amarillo = "\033[33m", morado = "\033[35m", colorNormal = "\u001B[0m";
+
+        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
+        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
+        System.out.println(verde +"1." + colorNormal +"Nombre");
+        System.out.println(verde +"2." + colorNormal +"Descripción.");
+        System.out.println(verde +"3." + colorNormal +"Categoría.");
+        System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
+        System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
+        System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
+        System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
+        System.out.println(verde +"8." + colorNormal +"Recompensas.");
+        System.out.println(verde +"9." + colorNormal +"Volver.");
+    }
+    public static void menuCambiarRecompensa(){
+        String  verde = "\033[32m", amarillo = "\033[33m", morado = "\033[35m", colorNormal = "\u001B[0m";
+
+        System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println(        "| "+ amarillo +" ¿Qué recompensa quieres cambiar? "+ morado +" |");
+        System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"+colorNormal);
+        System.out.println(verde +"1." + colorNormal +"Recompensa 1.");
+        System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
+        System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
+        System.out.println(verde +"4." + colorNormal +"Volver.");
+    }
 }
