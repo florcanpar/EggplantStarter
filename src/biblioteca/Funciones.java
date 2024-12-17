@@ -227,8 +227,10 @@ public class Funciones {
     public static boolean validarAdmin(String usuario, String contrasena, String ADMIN_USUARIO, String ADMIN_CONTRASENA, boolean admin, String verde, String colorNormal, String rojo) {
         if (usuario.equals(ADMIN_USUARIO)) {
             if (contrasena.equals(ADMIN_CONTRASENA)) {
+                System.out.println("Inserta tu correo:");
+                String correoUsuarioDestinatario = leerString();
                 System.out.println("Se le ha enviado un código de verificación a su correo.");
-                String codigoGenerado = correoEnviar();
+                String codigoGenerado = correoEnviar(correoUsuarioDestinatario);
                 System.out.println("Inserte el código: ");
                 String codigoInsertaUsuario = leerString();
                 if (codigoInsertaUsuario.equals(codigoGenerado)){
@@ -421,7 +423,7 @@ public class Funciones {
             me.printStackTrace();
         }
     }
-    public static String correoEnviar(){
+    public static String correoEnviar(String correoUsuarioDestinatario){
         /**
          * Aquí especifico el destinatario, asunto y cuerpo del correo.
          * Llamo a la función enviarConGMail para que se mande el correo.
@@ -433,7 +435,7 @@ public class Funciones {
          * @author: Flor Canillo
          */
         String codigo = Contrasenia();
-        String destinatario = "florcanillopardo@gmail.com"; // Destinatario del mensaje
+        String destinatario = correoUsuarioDestinatario; // Destinatario del mensaje
         String asunto = "[Eggplant Starter] Código de verificación.";
         String cuerpo = "<h1>Este es el código</h1>" + codigo;
         enviarConGMail(destinatario, asunto, cuerpo);

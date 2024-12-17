@@ -6,7 +6,7 @@ import java.util.Scanner;
             public static void main(String[] args) {
                 Scanner s = new Scanner(System.in);
                 String ADMIN_USUARIO = "admin", ADMIN_CONTRASENA = "adminpass", GESTOR_USUARIO = "gestor", GESTOR_CONTRASENA = "gestorpass",
-                        INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASENA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASENA = "inversor2pass", usuario, contrasena, amigosReferidos="";
+                        INVERSOR1_USUARIO = "inversor1", INVERSOR1_CONTRASENA = "inversor1pass", INVERSOR2_USUARIO = "inversor2", INVERSOR2_CONTRASENA = "inversor2pass", usuario, contrasena, amigosReferidos="", correoUsuarioDestinatario="";
                 int contadorFallosGestor = 0, contadorFallosInversor1 = 0, contadorFallosInversor2 = 0;
                 boolean bloquearGestor = false, bloquearInversor1 = false, bloquearInversor2 = false, admin, gestor, inversor1, inversor2;
                 int carteraInversor1 = 0, carteraInversor2 = 0, dineroAnadido, cantidadInvertir, cantidadInvertidaInversor1Proy01 = 0, cantidadInvertidaInversor1Proy02 = 0, cantidadInvertidaInversor1Proy03 = 0,
@@ -51,8 +51,10 @@ import java.util.Scanner;
                                     if (bloquearGestor) {
                                         System.out.println("El usuario " + GESTOR_USUARIO + " está " + rojo + "bloqueado." + colorNormal);
                                     } else if (contrasena.equals(GESTOR_CONTRASENA)) {
+                                        System.out.println("Inserta tu correo:");
+                                        correoUsuarioDestinatario = leerString();
                                         System.out.println("Se le ha enviado un código de verificación a su correo.");
-                                        String codigoGenerado = correoEnviar();
+                                        String codigoGenerado = correoEnviar(correoUsuarioDestinatario);
                                         System.out.println("Inserte el código: ");
                                         String codigoInsertaUsuario = leerString();
                                         if (codigoInsertaUsuario.equals(codigoGenerado)){
@@ -81,8 +83,10 @@ import java.util.Scanner;
                                     if (bloquearInversor1) {
                                         System.out.println("El usuario " + INVERSOR1_USUARIO + " está " + rojo +"bloqueado." + colorNormal);
                                     } else if (contrasena.equals(INVERSOR1_CONTRASENA)) {
+                                        System.out.println("Inserta tu correo:");
+                                        correoUsuarioDestinatario = leerString();
                                         System.out.println("Se le ha enviado un código de verificación a su correo.");
-                                        String codigoGenerado = correoEnviar();
+                                        String codigoGenerado = correoEnviar(correoUsuarioDestinatario);
                                         System.out.println("Inserte el código: ");
                                         String codigoInsertaUsuario = leerString();
                                         if (codigoInsertaUsuario.equals(codigoGenerado)){
@@ -111,8 +115,10 @@ import java.util.Scanner;
                                     if (bloquearInversor2) {
                                         System.out.println("El usuario " + INVERSOR2_USUARIO + " está " + rojo + "bloqueado." + colorNormal);
                                     } else if (contrasena.equals(INVERSOR2_CONTRASENA)) {
+                                        System.out.println("Inserta tu correo:");
+                                        correoUsuarioDestinatario = leerString();
                                         System.out.println("Se le ha enviado un código de verificación a su correo.");
-                                        String codigoGenerado = correoEnviar();
+                                        String codigoGenerado = correoEnviar(correoUsuarioDestinatario);
                                         System.out.println("Inserte el código: ");
                                         String codigoInsertaUsuario = leerString();
                                         if (codigoInsertaUsuario.equals(codigoGenerado)){
