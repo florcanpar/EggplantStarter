@@ -30,7 +30,8 @@ public class Funciones {
                 
                 Seleccione una opción:\s
                 1.- Iniciar sesión.
-                2.- Salir.""" + colorNormal);
+                2.- Registrar.
+                3.- Salir.""" + colorNormal);
     }
     /**
      * Muestra el menú principal para el inversor.
@@ -312,65 +313,42 @@ public class Funciones {
         System.out.print("]" + graficoBarras + "%");
         System.out.println();
     }
-    /**
-     * Muestra los detalles completos de un proyecto.
-     * @param nombreProyecto Nombre del proyecto.
-     * @param descripcion Descripción del proyecto.
-     * @param categoria Categoría del proyecto.
-     * @param cantidadNecesaria Cantidad necesaria para financiar el proyecto.
-     * @param cantidadFinanciada Cantidad ya financiada.
-     * @param fechaInicio Fecha de inicio del proyecto.
-     * @param fechaFinal Fecha de finalización del proyecto.
-     * @param recompensa1 Primera recompensa ofrecida.
-     * @param precioRecompensa1 Precio de la primera recompensa.
-     * @param recompensa2 Segunda recompensa ofrecida.
-     * @param precioRecompensa2 Precio de la segunda recompensa.
-     * @param recompensa3 Tercera recompensa ofrecida.
-     * @param precioRecompensa3 Precio de la tercera recompensa.
-     * @author: David Galán
-     */
-    public static void mostrarProyecto(String nombreProyecto, String descripcion, String categoria, double cantidadNecesaria, double cantidadFinanciada, String fechaInicio, String fechaFinal, String recompensa1, int precioRecompensa1, String recompensa2, int precioRecompensa2, String recompensa3, int precioRecompensa3) {
+
+    public static void mostrarProyecto(String[][] proyecto, int opcion, String[][] recompensas) {
         String  verde = "\033[32m", morado = "\033[35m",amarillo = "\033[33m", colorNormal = "\u001B[0m";
         System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
-        System.out.println("| " + amarillo + "  " + nombreProyecto + " " + morado + "  |");
+        System.out.println("| " + amarillo + "  " + proyecto[opcion][0] + " " + morado + "  |");
         System.out.println("┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
-        System.out.println("Nombre: " + nombreProyecto);
-        System.out.println("Descripción: " + descripcion);
-        System.out.println("Categoría: " + categoria);
-        System.out.println("Cantidad Necesaria: " + cantidadNecesaria);
-        System.out.println("Cantidad Financiada: " + cantidadFinanciada);
-        System.out.println("Fecha de inicio de Inversiones: " + fechaInicio);
-        System.out.println("Fecha final de Inversiones: " + fechaFinal);
+        System.out.println("Nombre: " + proyecto[opcion][0]);
+        System.out.println("Descripción: " + proyecto[opcion][1]);
+        System.out.println("Categoría: " + proyecto[opcion][2]);
+        System.out.println("Cantidad Necesaria: " + proyecto[opcion][3]);
+        System.out.println("Cantidad Financiada: " + proyecto[opcion][4]);
+        System.out.println("Fecha de inicio de Inversiones: " + proyecto[opcion][5]);
+        System.out.println("Fecha final de Inversiones: " + proyecto[opcion][6]);
 
         System.out.println("Recompensas: ");
-        System.out.println("Recompensa 1: " + recompensa1);
-        System.out.println("Precio: " + precioRecompensa1 + "€");
-        System.out.println("Recompensa 2: " + recompensa2);
-        System.out.println("Precio: " + precioRecompensa2 + "€");
-        System.out.println("Recompensa 3: " + recompensa3);
-        System.out.println("Precio: " + precioRecompensa3 + "€");
+        System.out.println("Recompensa 1: " + recompensas[opcion][0]);
+        System.out.println("Precio: " + recompensas[opcion][1] + "€");
+        System.out.println("Recompensa 2: " + recompensas[opcion][2]);
+        System.out.println("Precio: " + recompensas[opcion][3] + "€");
+        System.out.println("Recompensa 3: " + recompensas[opcion][4]);
+        System.out.println("Precio: " + recompensas[opcion][5] + "€");
         System.out.println("Gráfico de barras de cantidad financiada: \n" +
                 verde + "▓ " + colorNormal + ": Parte financiada.\n" +
                 "░ : Parte por financiar.");
-        graficoBarras(cantidadNecesaria,cantidadFinanciada);
+        graficoBarras(Integer.parseInt(proyecto[opcion][3]),Integer.parseInt(proyecto[opcion][4]));
     }
-    /**
-     * Muestra un resumen de un proyecto con los detalles básicos.
-     * @param nombreProyecto Nombre del proyecto.
-     * @param categoriaProyecto Categoría del proyecto.
-     * @param cantidadNecesaria Cantidad necesaria para financiar el proyecto.
-     * @param cantidadFinanciada Cantidad financiada hasta el momento.
-     * @author: David Galán
-     */
-    public static void mostrarResumenProyecto(String nombreProyecto, String categoriaProyecto, double cantidadNecesaria, double cantidadFinanciada) {
+
+    public static void mostrarResumenProyecto(String[][] proyecto, int opcion) {
         String rojo = "\033[31m", amarillo = "\033[33m", morado = "\033[35m", colorNormal = "\u001B[0m";
         System.out.println(morado +"┏━━━━━━━━━━━━━━━━━┓");
-        System.out.println("| " + amarillo + "  " + nombreProyecto + morado + "  |");
+        System.out.println("| " + amarillo + "  " + proyecto[opcion][0] + morado + "  |");
         System.out.println("┗━━━━━━━━━━━━━━━━━┛" + colorNormal);
-        System.out.println("Nombre: " + nombreProyecto);
-        System.out.println("Categoría: " + categoriaProyecto);
-        System.out.println("Cantidad Necesaria: " + cantidadNecesaria);
-        System.out.println("Cantidad Financiada: " + cantidadFinanciada);
+        System.out.println("Nombre: " + proyecto[opcion][0]);
+        System.out.println("Categoría: " + proyecto[opcion][2]);
+        System.out.println("Cantidad Necesaria: " + proyecto[opcion][3]);
+        System.out.println("Cantidad Financiada: " + proyecto[opcion][4]);
         System.out.println("Para ver el proyecto detallado, inserte " + rojo +"[X]." + colorNormal);
     }
     /**
@@ -469,15 +447,15 @@ public class Funciones {
         System.out.println(morado +"┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
         System.out.println(        "| "+ amarillo +" ¿Qué quieres cambiar? "+ morado +" |");
         System.out.println(        "┗━━━━━━━━━━━━━━━━━━━━━━━━━┛" + colorNormal);
-        System.out.println(verde +"1." + colorNormal +"Nombre");
-        System.out.println(verde +"2." + colorNormal +"Descripción.");
-        System.out.println(verde +"3." + colorNormal +"Categoría.");
-        System.out.println(verde +"4." + colorNormal +"Cantidad Necesaria.");
-        System.out.println(verde +"5." + colorNormal +"Cantidad Financiada.");
-        System.out.println(verde +"6." + colorNormal +"Fecha de Inicio de inversiones.");
-        System.out.println(verde +"7." + colorNormal +"Fecha de finalización de inversiones.");
-        System.out.println(verde +"8." + colorNormal +"Recompensas.");
-        System.out.println(verde +"9." + colorNormal +"Volver.");
+        System.out.println(verde +"0." + colorNormal +"Nombre");
+        System.out.println(verde +"1." + colorNormal +"Descripción.");
+        System.out.println(verde +"2." + colorNormal +"Categoría.");
+        System.out.println(verde +"3." + colorNormal +"Cantidad Necesaria.");
+        System.out.println(verde +"4." + colorNormal +"Cantidad Financiada.");
+        System.out.println(verde +"5." + colorNormal +"Fecha de Inicio de inversiones.");
+        System.out.println(verde +"6." + colorNormal +"Fecha de finalización de inversiones.");
+        System.out.println(verde +"7." + colorNormal +"Recompensas.");
+        System.out.println(verde +"8." + colorNormal +"Volver.");
     }
     public static void menuCambiarRecompensa(){
         String  verde = "\033[32m", amarillo = "\033[33m", morado = "\033[35m", colorNormal = "\u001B[0m";
@@ -489,5 +467,129 @@ public class Funciones {
         System.out.println(verde +"2." + colorNormal +"Recompensa 2.");
         System.out.println(verde +"3." + colorNormal +"Recompensa 3.");
         System.out.println(verde +"4." + colorNormal +"Volver.");
+    }
+    public static void inicializarArrayBidimensionalString(String[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = "";
+            }
+        }
+    }
+    public static void inicializarArrayBidimensionalBoolean(Boolean[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = false;
+            }
+        }
+    }
+    public static Boolean hayHuecoGestorInversor(String tipoUsuarioRegistro, String[][] gestorDatos, String[][] inversorDatos){
+        if (tipoUsuarioRegistro.equalsIgnoreCase("G")){
+            for (int i = 0; i < gestorDatos.length; i++) {
+                if (gestorDatos[i][0].isEmpty()) return true;
+            }
+        } else if (tipoUsuarioRegistro.equalsIgnoreCase("I")) {
+            for (int i = 0; i < inversorDatos.length; i++) {
+                if (inversorDatos[i][0].isEmpty()) return true;
+            }
+        }
+        return false;
+    }
+    public static int posicionGestorInversorRegistro(String tipoUsuarioRegistro, String[][] gestorDatos, String[][] inversorDatos){
+        int posicion=0;
+        if (tipoUsuarioRegistro.equalsIgnoreCase("G")){
+            for (int i = 0; i < gestorDatos.length; i++) {
+                if (!(gestorDatos[i][0].isEmpty())) posicion++;
+            }
+        } else if (tipoUsuarioRegistro.equalsIgnoreCase("I")) {
+            for (int i = 0; i < inversorDatos.length; i++) {
+                if (!(inversorDatos[i][0].isEmpty())) posicion++;
+            }
+        }
+        return posicion;
+    }
+    public static boolean usuarioAdmin(int tipoUsuarioIS, String usuario, String contraseña, String[][] adminDatos, String[][] gestorDatos, String[][] inversorDatos){
+        Boolean correcto=false;
+
+        if (tipoUsuarioIS==1){
+            for (int i = 0; i < adminDatos.length; i++) {
+                if (usuario.equals(adminDatos[i][0]) && contraseña.equals(adminDatos[i][1])) return true;
+            }
+        } else if (tipoUsuarioIS==2) {
+            for (int i = 0; i < gestorDatos.length; i++) {
+                if (usuario.equals(gestorDatos[i][0])  && contraseña.equals(gestorDatos[i][1])) return true;
+            }
+        } else if (tipoUsuarioIS==3) {
+            for (int i = 0; i < inversorDatos.length; i++) {
+                if (usuario.equals(inversorDatos[i][0])  && contraseña.equals(inversorDatos[i][1])) return true;
+            }
+        }
+        return correcto;
+    }
+    public static int posicionAdminGestorInversorIS(int tipoUsuarioIS, String usuario, String[][] adminDatos, String[][] gestorDatos, String[][] inversorDatos){
+        int posicion=-1;
+        if (tipoUsuarioIS==1){
+            for (int i = 0; i < adminDatos.length; i++) {
+                if (usuario.equals(adminDatos[i][0])) return i;
+            }
+        } else if (tipoUsuarioIS==2) {
+            for (int i = 0; i < gestorDatos.length; i++) {
+                if (usuario.equals(gestorDatos[i][0])) return i;
+            }
+        } else if (tipoUsuarioIS==3) {
+            for (int i = 0; i < inversorDatos.length; i++) {
+                if (usuario.equals(inversorDatos[i][0])) return i;
+            }
+        }
+        return posicion;
+    }
+    public static int cuantosGestoresHay(String[][] gestorDatos){
+        int cant = 0;
+        for (int i = 0; i < gestorDatos.length; i++) {
+            if (!gestorDatos[i][0].isEmpty()) cant++;
+        }
+        return cant;
+    }
+    public static int cuantosInversoresHay(String[][] inversorDatos){
+        int cant = 0;
+        for (int i = 0; i < inversorDatos.length; i++) {
+            if (!inversorDatos[i][0].isEmpty()) cant++;
+        }
+        return cant;
+    }
+    public static void mostrarUsuarioBloqueados(Boolean[][] bloqueosUsuarios, String[][] gestorDatos, String[][] inversorDatos){
+        int cantGestores=cuantosGestoresHay(gestorDatos);
+        int cantInversores=cuantosInversoresHay(inversorDatos);
+        for (int i = 0; i < cantGestores; i++) {
+            System.out.print(i+". "+gestorDatos[i][0]+": ");
+            if (bloqueosUsuarios[i][0]) System.out.print("Bloqueado");
+            else System.out.print("Desbloqueado");
+            System.out.println();
+        }
+        for (int i = cantGestores; i < (cantGestores)+cantInversores; i++) {
+            System.out.print(i+". "+inversorDatos[i-cantGestores][0]+": ");
+            if (bloqueosUsuarios[(gestorDatos.length+i)-cantGestores][0]) System.out.print("Bloqueado");
+            else System.out.print("Desbloqueado");
+            System.out.println();
+        }
+        System.out.println(cantInversores+cantGestores+". Salir.");
+    }
+    public static int cuantosProyectosHay(String[][] proyectos){
+        int cant = 0;
+        for (int i = 0; i < proyectos.length; i++) {
+            if (!proyectos[i][0].isEmpty()) cant++;
+        }
+        return cant;
+    }
+    public static void mostrarProyectosDisponibles(String[][] proyectos){
+        for (int i = 0; i < proyectos.length; i++) {
+            if (proyectos[i][0].isEmpty()) System.out.println(i+". Proyecto Disponible.");
+        }
+        System.out.println(proyectos.length+". Salir");
+    }
+    public static void mostrarProyectosCreados(String[][] proyectos){
+        for (int i = 0; i < proyectos.length; i++) {
+            if (!proyectos[i][0].isEmpty()) System.out.println(i+". Proyecto Disponible.");
+        }
+        System.out.println(proyectos.length+". Salir");
     }
 }
