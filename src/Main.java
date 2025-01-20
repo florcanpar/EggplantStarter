@@ -30,11 +30,11 @@ import java.util.Scanner;
 
                 adminDatos[0][0]="admin";
                 adminDatos[0][1]="adminpass";
-                adminDatos[0][2]="davidgalan001@gmail.com";
+                adminDatos[0][2]="florcanillopardo@gmail.com";
 
                 gestorDatos[0][0]="gestor";
                 gestorDatos[0][1]="gestorpass";
-                gestorDatos[0][2]="davidgalan001@gmail.com";
+                gestorDatos[0][2]="florcanillopardo@gmail.com";
                 inversorDatos[2][0]="david";
                 inversorDatos[2][1]="david";
                 inversorDatos[2][2]="davidgalan001@gmail.com";
@@ -79,7 +79,11 @@ import java.util.Scanner;
                                 Boolean correoCorrecto=false;
                                 do {
                                     do {
-                                        System.out.println("Introduzca el tipo de Usuario: 1 Admin, 2 Gestor y 3 Inversor");
+                                        System.out.println("""
+                                                Introduzca el tipo de Usuario:
+                                                (1) Admin.
+                                                (2) Gestor.
+                                                (3) Inversor.""");
                                         tipoUsuarioIS = Integer.parseInt(s.nextLine());
                                     }while (!(tipoUsuarioIS==1 || tipoUsuarioIS==2 || tipoUsuarioIS==3));
                                     System.out.print("Usuario: ");
@@ -178,12 +182,28 @@ import java.util.Scanner;
                                                                             opcion = leerInt();
                                                                             switch (opcion) {
                                                                                 case 0:
-                                                                                    System.out.println("Nombre:");
-                                                                                    proyectos[opcionProyecto][opcion] = leerString();
+                                                                                    String nombreProyecto = "";
+                                                                                    do {
+                                                                                        System.out.println("Nombre:");
+                                                                                        nombreProyecto = s.nextLine();
+                                                                                        if (nombreProyecto.length() > 40){
+                                                                                            System.out.println("El título no puede tener más de 40 caracteres. Inténtelo de nuevo.");
+                                                                                        } else {
+                                                                                            proyectos[opcionProyecto][opcion] = nombreProyecto;
+                                                                                        }
+                                                                                    }while (nombreProyecto.length() > 40);
                                                                                     break;
                                                                                 case 1:
-                                                                                    System.out.println("Descripción:");
-                                                                                    proyectos[opcionProyecto][opcion] = leerString();
+                                                                                    String nombreDesc = "";
+                                                                                    do {
+                                                                                        System.out.println("Descripción:");
+                                                                                        nombreDesc = s.nextLine();
+                                                                                        if (nombreDesc.length() > 200){
+                                                                                            System.out.println("La descripción no puede tener más de 200 caracteres. Inténtelo de nuevo.");
+                                                                                        } else {
+                                                                                            proyectos[opcionProyecto][opcion] = nombreDesc;
+                                                                                        }
+                                                                                    }while (nombreDesc.length() > 200);
                                                                                     break;
                                                                                 case 2:
                                                                                     System.out.println("Categoría:");
@@ -342,10 +362,26 @@ import java.util.Scanner;
                                                                     int cantNecesaria;
                                                                     int cantFinanciada;
                                                                     do {
-                                                                        System.out.println("Nombre:");
-                                                                        proyectos[opcionProyecto][0] = s.nextLine();
-                                                                        System.out.println("Descripción:");
-                                                                        proyectos[opcionProyecto][1] = s.nextLine();
+                                                                        String nombreProyecto = "";
+                                                                        do {
+                                                                            System.out.println("Nombre:");
+                                                                            nombreProyecto = s.nextLine();
+                                                                            if (nombreProyecto.length() > 40){
+                                                                                System.out.println("El título no puede tener más de 40 caracteres. Inténtelo de nuevo.");
+                                                                            } else {
+                                                                                proyectos[opcionProyecto][0] = nombreProyecto;
+                                                                            }
+                                                                        }while (nombreProyecto.length() > 40);
+                                                                        String nombreDesc = "";
+                                                                        do {
+                                                                            System.out.println("Descripción:");
+                                                                            nombreDesc = s.nextLine();
+                                                                            if (nombreDesc.length() > 200){
+                                                                                System.out.println("La descripción no puede tener más de 200 caracteres. Inténtelo de nuevo.");
+                                                                            } else {
+                                                                                proyectos[opcionProyecto][1] = nombreDesc;
+                                                                            }
+                                                                        }while (nombreDesc.length() > 200);
                                                                         System.out.println("Categoría:");
                                                                         proyectos[opcionProyecto][2] = s.nextLine();
                                                                         System.out.println("Cantidad necesaria:");
@@ -410,12 +446,28 @@ import java.util.Scanner;
                                                                             opcion = leerInt();
                                                                             switch (opcion) {
                                                                                 case 0:
-                                                                                    System.out.println("Nombre:");
-                                                                                    proyectos[opcionProyecto][opcion] = leerString();
+                                                                                    String nombreProyecto = "";
+                                                                                    do {
+                                                                                        System.out.println("Nombre:");
+                                                                                        nombreProyecto = s.nextLine();
+                                                                                        if (nombreProyecto.length() > 40){
+                                                                                            System.out.println("El título no puede tener más de 40 caracteres. Inténtelo de nuevo.");
+                                                                                        } else {
+                                                                                            proyectos[opcionProyecto][opcion] = nombreProyecto;
+                                                                                        }
+                                                                                    }while (nombreProyecto.length() > 40);
                                                                                     break;
                                                                                 case 1:
-                                                                                    System.out.println("Descripción:");
-                                                                                    proyectos[opcionProyecto][opcion] = leerString();
+                                                                                    String nombreDesc = "";
+                                                                                    do {
+                                                                                        System.out.println("Descripción:");
+                                                                                        nombreDesc = s.nextLine();
+                                                                                        if (nombreDesc.length() > 200){
+                                                                                            System.out.println("La descripción no puede tener más de 200 caracteres. Inténtelo de nuevo.");
+                                                                                        } else {
+                                                                                            proyectos[opcionProyecto][opcion] = nombreDesc;
+                                                                                        }
+                                                                                    }while (nombreDesc.length() > 200);
                                                                                     break;
                                                                                 case 2:
                                                                                     System.out.println("Categoría:");
