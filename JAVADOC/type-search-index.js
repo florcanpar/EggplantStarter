@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"biblioteca","l":"Funciones"},{"p":"<Unnamed>","l":"Main"}];updateSearchResults();
