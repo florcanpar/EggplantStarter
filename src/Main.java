@@ -779,10 +779,10 @@ import java.util.Scanner;
                             }
                         break;
                         case 3: // se pone case 2 para que no salga el mensaje de default al pulsar 2
-                            System.out.println("Bye Bye...👋👋");
+                            System.out.println("Adiós.");
                             break;
                         default:
-                            System.out.println("Vuelve a intentarlo");
+                            System.out.println("Vuelve a intentarlo.");
                     }
                 }while(opcionInicio!=3);
             }
