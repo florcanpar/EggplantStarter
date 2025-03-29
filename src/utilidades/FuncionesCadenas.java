@@ -1,4 +1,4 @@
-package biblioteca;
+package utilidades;
 
 public class FuncionesCadenas {
 

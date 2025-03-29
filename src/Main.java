@@ -1,5 +1,6 @@
-import static biblioteca.Funciones.*;
-import static biblioteca.FuncionesCadenas.*;
+import static utilidades.Funciones.*;
+import static utilidades.FuncionesCadenas.*;
+import static utilidades.FuncionesCorreos.*;
 import java.util.Scanner;
 
         public class Main {
